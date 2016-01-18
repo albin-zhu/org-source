@@ -1,0 +1,496 @@
+#+TITLE: python学习笔记
+#+DATE: <2016-01-17 五 18:12>
+#+TAGS: python, emacs, orgmode, hexo
+#+LAYOUT: post
+#+CATEGORIES: 笔记
+
+开始之前咱先来一张图
+#+ATTR_HTML:  :alt emacs
+[[http://7xq4oz.com1.z0.glb.clouddn.com/hexo/python_emacs.png]]
+
+
+* 基本语法 
+** 简述
+   1. # 之后表注释
+   2. 通常一个语句一行，用标准换行(\n)
+   3. \ 表示继续上一行
+   4. ; 将两个语句连接在一行
+   5. : 将代码块的头和体分开，比如 if express :
+   6. python的代码块不是用花括号体现，而是用相同的缩进表示
+   7. python 文件以模块的形式组织
+
+*** 讨厌的编码
+    #+BEGIN_SRC python
+#!/bin/env python
+# coding=utf-8
+    #+END_SRC
+
+    第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；
+    第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。
+    申明了UTF-8编码并不意味着你的.py文件就是UTF-8编码的，必须并且要确保文本编辑器正在使用UTF-8 without BOM编码
+
+    #+begin_src python
+print 'ABC'.encode('ascii')
+print u'中文'.encode('utf-8')
+print u'中文'.encode('ascii')
+print b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')
+    #+end_src
+
+    纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。
+    在bytes中，无法显示为ASCII字符的字节，用 *\x##* 显示。
+    反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法
+    python 的格式化操作与C语言是一样的，如果不确定用什么 *%s* 是永远有效的。
+** 数据类型与变量
+
+*** 基本数据类型
+    在用的时候不用过分的去在意，但要知道它的类型有哪些，支持到什么程度，不要用错就OK
+    1. 整数，可以很长很长
+    2. 浮点数，也可以很长很长
+    3. 字符串，上面已经恶心过了
+    4. 布尔值，True\False, 不是true\false
+    5. 空值，None
+
+**** 先看一小段简单的代码
+
+     #+begin_src python
+#!/bin/env python
+# coding=utf-8
+
+from fractions import Fraction
+
+def main():
+"""
+我们来讲一下最简单的 python 程序：
+解释型语言，运行慢，开发快。最常见于网站，其次是日常小工具，或者代替shell做管理脚本。
+它的设计就是冲着“优雅“…“简单“…“明确“，看起来图森破。
+ps:(我不是注释，我是字符串，但我有注释的效果)
+"""
+2 # 这样真的不会报错吗 ，上边那些是字符串，我是整型，应该不会错吧
+
+a, b, c, d = "sb", 501 // 2, 501 / 2.0, 10 ** 192 / 3.0 # 你真的好长
+b, a = a,b
+print "a is type (%s) : %s" % (type(a), a)
+print "b is type (%s) : %s" % (type(b), b)
+print "c is type (%s) : %s" % (type(c), c)
+print "d is type (%s) : %s" % (type(d), d)
+
+print u"来点复杂的吧"
+i_am_a_fraction = Fraction(2, 6)
+print str(i_am_a_fraction)
+i_am_a_fraction += Fraction(7, 9)
+print i_am_a_fraction
+i_am_a_fraction += 1
+print i_am_a_fraction
+i_am_a_fraction += 1.0
+print i_am_a_fraction
+
+complex_number = (1-0.3j) * (3+0.7j)
+print complex_number
+complex_number -= 1
+complex_number *= 2
+try:
+print "complex_number.real = " + c.real + ", complex_number.imag = " + c.imag
+except TypeError as e:
+print e
+print "complex_number.real = %f, complex_number.imag = %fj"\
+% (complex_number.real, complex_number.imag)
+
+
+if __name__ == '__main__':
+main()
+
+     #+end_src
+**** ps:字符串的一些API，适用接下来的list#
+     1. substring, 变态的要来了
+     #+begin_src python
+a_str = 'hey, come on baby, sub me!'
+print a_str[5:9]
+print a_str[5:]
+print a_str[:-9]
+     #+end_src
+     output:
+     #+begin_src python
+come
+come on baby, sub me!
+hey, come on baby
+
+     #+end_src
+     2. reverssring
+     #+begin_src python
+a_str = '0123456789'
+print a_str[::-1]
+for i in range(10):
+print a_str[i::-1]
+print a_str[::-2]
+for i in range(5):
+print a_str[i::-2]
+     #+end_src
+     output:
+     #+begin_src python
+9876543210
+0
+10
+210
+3210
+43210
+543210
+6543210
+76543210
+876543210
+9876543210
+97531
+0
+1
+20
+31
+420
+     #+end_src
+
+*** list and tuple
+**** list
+     list也就是数组，但不是c++的list,它更像PHP，或者JS，它说下来也就是下面几点：
+     1. 变长
+     2. 类型不要求一致
+     3. 取长度的时候用的是 len, 这一点基本与其它类型都一样
+     4. 不是push,是append.
+     5. 有越界风险，取最后一个用somelist[-1]
+     6. 可以嵌套，与第二点相符
+     #+begin_src python
+a_list = [i*i for i in range(10)]
+last_one = a_list[-1]
+print last_one
+print a_list.pop()
+print a_list
+
+mix_list = ["a", 1, [None, True, False], {'a':1, 'b':"2"}, ("sb", 520)]
+mix_list.append("2b")
+print mix_list
+     #+end_src
+     output:
+     #+begin_src python
+9
+9
+[0, 1, 4, 9, 16, 25, 36, 49, 64]
+['a', 1, [None, True, False], {'a': 1, 'b': '2'}, ('sb', 520), '2b']
+     #+end_src
+**** tuple
+     另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改。
+     需要注意的是定义单个tuple的时候，不能用 *t = (1)*,这表示的是 *t = 1* ，而是要用 *t = (1, )*
+
+     ps: enmuator
+
+*** dict and set
+**** dict
+     它就是一个map,安全取值有两种方式，取之前用 *in*
+     #+begin_src ptyhon
+if key in d:
+ d[key]
+     #+end_src
+     第二种用get
+     #+begin_src python
+d.get(key)
+d.get(key, default) # return default
+     #+end_src
+     删除只需要 /*d.pop(key)*/, value会自动删除
+     ps:上面的list 中用到了dict
+
+**** set
+     /*aset.add(key)*/
+     /*aset.remove(key)*/
+     就这两个api，另外注意它是唯一的，无序的就OK
+
+** 控制语句
+   首先要说明的是，python没有 /*switch*/
+
+*** 条件判断
+    /*if elif else*/ 简单的不多说了，不过用 if 可以写三元运算 /*V1 if X else V2*/ 。 如果确定 V1不是空字符串('')的话，也可以： /*(X and V1) or V2*/
+
+*** 循环
+    要注意的是多层循环中break是跳出当前循环
+    #+begin_src python
+for i in range(3):
+ print "i : %s" % i
+ for j in range(3):
+     print "j : %s" % j
+     for k in range(3):
+         if k == 1:
+             break
+         print "k : %s" % k
+    #+end_src
+    如果要跳出所有循环，可以raise一个异常，在外边捕捉，或者定义成函数跳出
+    #+begin_src python
+try:
+ for i in range(3):
+     print "i : %s" % i
+     for j in range(3):
+         print "j : %s" % j
+         for k in range(3):
+             if k == 1:
+                 raise Exception("test")
+             print "k : %s" % k
+except Exception as e:
+ print e
+    #+end_src
+    实在想跳出指定的，可以用for else语句，如果for正常执行完，会调用else语句块
+    #+begin_src python
+for i in range(3):
+ print "i : %s" % i
+ for j in range(3):
+     print "j : %s" % j
+     for k in range(3):
+         break
+     else:continue
+     break
+ else:continue
+ break
+    #+end_src
+    output
+    #+begin_src python
+i : 0
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+i : 1
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+i : 2
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+================================================================================
+i : 0
+j : 0
+k : 0
+test
+================================================================================
+i : 0
+j : 0
+-----------------------------------------------------
+    #+end_src
+** 函数注意点
+   任意函数都有反回值，如果没有 /*return*/,返回值是 /*None*/
+*** 默认参数
+    #+begin_src python
+def xxx(arg1, arg2 = defaultvalue):
+ pass
+    #+end_src
+*** 可变参数
+    #+begin_src python
+def calc(numbers):
+ sum = 0
+ for n in numbers:
+     sum = sum + n * n
+ return sum
+
+calc((1,2,3,4,5))
+
+def calc(*numbers):
+ sum = 0
+ for n in numbers:
+     sum = sum + n * n
+     return sum
+
+args = (1,2,3,4,5)
+calc(*args) # 可以把tuple变成参数依次传入
+
+    #+end_src
+*** 关键字参数
+    #+begin_src python
+def person(name, age, **kw):
+ if 'city' in kw:
+     # 有city参数
+     pass
+ if 'job' in kw:
+     # 有job参数
+     pass
+     print('name:', name, 'age:', age, 'other:', kw)
+    #+end_src
+    如果想限制传入的值可以用
+    /*def person(name, age, *, city, job)*/ ,那么city与job就是必填项，当然这里也可以用默认值，比如 /*def person(name, age, *,city="Shangehai", job)*/ ,注意一下关键字参数如果用默认值是不用关心顺序的。
+    dict可以在前边加上'**',做为关键字参数
+    #+begin_src python
+extra = {'city': 'Beijing', 'job': 'Engineer'}
+person("SB", 28, **extra)
+    #+end_src
+    TEST:
+    #+begin_src python
+def f1(a, b, c=0, *args, **kw):
+ print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+def f2(a, b, c=0, *, d, **kw):
+ print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+    #+end_src
+
+** 如何变得简洁
+*** 切片
+    还记得之前的substring吗，切片操作还可以用于 /list/, /tuple/,另外还有一种，/*a[:]*/ 会拷贝出一个新的
+*** 迭代
+    比如遍历一个dict
+    #+begin_src python
+d = {'a':1, 'b':2, 'c':3}
+for k in d:
+ print d
+
+for k, v in d:
+ print k
+ print v
+    #+end_src
+    list, tuple, string
+    #+begin_src ptyhon
+for ch in 'abcdefg':
+    print ch
+for v in [1,2,3,4]:
+    print v
+for t in (1,2,3,4,5):
+    print t
+    #+end_src
+*** 列表生成式
+    上边在说到list的时候提到过一次
+    /*[a + b for a in A if EXP for b in B if EXP]*/
+    #+begin_src python
+a = list(range(1,100))
+# a = [1,2,3, ...,99, 100]
+(i**2 for i in range(10) if i % 2 == 0)
+# 0到10之间偶数的平方
+    #+end_src
+
+*** yield
+    上边说的都是一些简单的，下边来生成一个斐波拉契数列，好像上边的做不了。。。。
+    先来打印一下
+    #+begin_src python
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+
+    #+end_src
+    但现在的需要不是打印，而是生成一个迭代器
+    #+begin_src python
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+    #+end_src
+    好像与上边的没有区别，只是在第四行把print变成了yield，只样返回值不在是**done**了， generator
+
+*** map and reduce
+    上边的**列表生成式**,可以把一个列表变成另一个，但如要求来的更复杂一点，比函数 f(x).
+    #+begin_src python
+res = map(f, (1,2,3))
+# res = (f(1), f(2), f(3))
+    #+end_src
+    reduce和map类似，它的函数要求为f(x, y)
+    sample：假设python 没有提供int(x) 函数，现在来实它
+    /*reduce(f, (a,b,c,d)) = f(f(f(a,b),c),d)*/
+    #+begin_src python
+def char2num(s):
+    return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
+def str2int(s):
+    return reduce(lambda x, y: x * 10 + y, map(char2num, s))
+    #+end_src
+
+*** filter and sorted
+    filter 与 map的区别在于, /*filter*/ 要求f(x)返回一个布尔值，来判断是否保留x
+    sorted,这个还是看代码吧
+    #+begin_src python
+from operator import itemgetter
+
+L = ['bob', 'about', 'Zoo', 'Credit']
+
+print(sorted(L))
+print(sorted(L, key=str.lower))
+
+students = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+print(sorted(students, key=itemgetter(0)))
+print(sorted(students, key=lambda t: t[1]))
+print(sorted(students, key=itemgetter(1), reverse=True))
+    #+end_src
+*** lambda
+    /*lambda x : f(x)*/ 其实就等于
+    #+begin_src python
+def func(x):
+    return f(x)
+    #+end_src
+    需要注意的是lambda只能有一个表达式，并且不需要写return,其它的与function没有区别
+
+    #+begin_src python
+map(lambda x: x * x, (1,2,3,4,5))
+    #+end_src
+
+*** 装饰器
+    这东西它是个什么呢，在C#，JAVA， AS3中我们都有用过，举个例子
+    #+begin_src python
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+def log(func):
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+@log
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+def log(text):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+@log("custom")
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+import functools
+
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+@log
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+import functools
+
+def log(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+@log("test")
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+    #+end_src
+
+    未完待续 [[http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000][参考]]
