@@ -2,13 +2,15 @@
 #+AUTHOR:      root
 #+EMAIL:       zhuyabin@gamehero.me
 #+DATE:        2016-01-18 一
-#+URI:         /blog/%y/%m/%d/test
-#+KEYWORDS:    test
-#+TAGS:        test
+#+KEYWORDS:    test_keywords
+#+TAGS:        test_tag
 #+LANGUAGE:    en
 #+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
-#+DESCRIPTION: test
+#+DESCRIPTION: test_description
 
 * test
-test
+  test
 ** test2
+:PROPERTIES:
+:Title: test
+:woker: albin

@@ -1,0 +1,11 @@
+#+TITLE:       Test-org
+#+AUTHOR:      albin
+#+EMAIL:       zhuyabin@gamehero.me
+#+DATE:        2016-01-18 一
+#+URI:         /blog/%y/%m/%d/test-org
+#+KEYWORDS:    <TODO: insert your keywords here>
+#+TAGS:        <TODO: insert your tags here>
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+
+#+DESCRIPTION: <TODO: insert your description here>
