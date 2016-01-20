@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Test - org-page</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="author" content="root" />
+  <meta name="description" content="test_description" />
+  <meta name="keywords" content="test_keywords" />
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+    <script src="/js/require-2.1.6,jquery-1.9.1.min.js"> type="text/javascript"></script>
+    <script src="/js/tagcloud.js"> type="text/javascript"></script>  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/codeStyle/desert.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+     <style>
+        body {
+          background: lightgray;
+        }
+        #container .left-col {
+          background: white;
+        }
+        .article-inner {
+          background: white;
+          margin-bottom: 1em;
+        }
+        .post-nav-button {
+          background: #ececec;
+        }
+        #header .header-nav .social #GitHub {
+          background-color: #bfd3ec;
+        }
+        #post-nav-button a {
+          background: rgba(215, 216, 215, .2);
+        }
+        .post-list {
+          background: white;
+        }
+    </style>
+  </script>
+</head>
+
+<body class="container">
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img lazy-src="/favico.jpg" class="js-avatar">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Albin</a></h1>
+        </hgroup>
+        <p class="header-subtitle">不务正业的现役程序猿</p>
+        <form><input type="text" class="search" placeholder="点我会很爽。。。"></form>
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                    </ul>
+                </div>
+            </div>
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                            <li><a href="/blog/">Blog</a></li>
+                                                                        
+<li><a href="/about/">About</a></li>             
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                           <li id="Email"><a class="Email" target="_blank" href="mailto:albinyewen@gmail.com" title="Email"></a></li>                           
+                           <li id="Twitter"><a class="Twitter" target="_blank" href="https://twitter.com/zybyy" title="Twitter"></a></li>
+                           <li id="Facebook"><a class="Facebook" target="_blank" href="https://www.facebook.com/hialbin" title="Facebook"></a></li>
+                           <li id="RSS"><a class="RSS" target="_blank" href="/rss.xml" title="Twitter"></a></li>
+                        </ul>
+                    </nav>
+                </section>
+                                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                    </div>
+                </section>                
+            </div>
+        </div>
+    </header>                
+</div>
+
+    </div>
+    <div class="mid-col">
+      <div class="body-wrap"><article id="post-blog-building" class="article article-type-post" itemscope="" itemprop="blogPost" style="opacity: 1;">
+<div class="article-inner">
+<header class="article-header">
+<h1 class="article-title"></h1>
+</header>
+<div class="article-entry" itemprop="articleBody">
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">test</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+test
+</p>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2">test2</h3>
+<div class="outline-text-3" id="text-orgheadline2">
+<p>
+:PROPERTIES:
+:Title: test
+:woker: albin
+</p>
+</div>
+</div>
+</div>
+
+<div id="post__action">
+      <a id="icon-heart" class="fontello" href="javascript:donate();"></a>
+  </div>
+
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+     var duoshuoQuery = {short_name:'albin'};
+     (function() {
+     var dsdiv = $('.ds-thread');
+     dsdiv.attr("data-title", document.title);
+     dsdiv.attr("data-url",document.location.href);
+     dsdiv.attr("data-thread-key", document.location.pathname);
+       var ds = document.createElement('script');
+       ds.type = 'text/javascript';ds.async = true;
+       ds.src = 'http://static.duoshuo.com/embed.js';
+       ds.charset = 'UTF-8';
+       (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+       $('.ds-thread').css('display','block');
+     })();
+    </script>
+</div>
+
+<script src="/js/run_prettify.js"></script>
+</div>
+</div>
+</article></div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 <a href="http://albin.ga">albin.ga</a>
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv">
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv">
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>    
+    </div>
+    <script src="/js/main.js" type="text/javascript"></script>
+    <div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+                                    </script>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>  
+</body>
+</html>

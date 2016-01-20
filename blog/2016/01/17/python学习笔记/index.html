@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>python学习笔记 - org-page</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="author" content="root" />
+  <meta name="description" content="粗略介绍一下python,简单入门，以及几个例子" />
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+    <script src="/js/require-2.1.6,jquery-1.9.1.min.js"> type="text/javascript"></script>
+    <script src="/js/tagcloud.js"> type="text/javascript"></script>  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/codeStyle/desert.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+     <style>
+        body {
+          background: lightgray;
+        }
+        #container .left-col {
+          background: white;
+        }
+        .article-inner {
+          background: white;
+          margin-bottom: 1em;
+        }
+        .post-nav-button {
+          background: #ececec;
+        }
+        #header .header-nav .social #GitHub {
+          background-color: #bfd3ec;
+        }
+        #post-nav-button a {
+          background: rgba(215, 216, 215, .2);
+        }
+        .post-list {
+          background: white;
+        }
+    </style>
+  </script>
+</head>
+
+<body class="container">
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img lazy-src="/favico.jpg" class="js-avatar">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Albin</a></h1>
+        </hgroup>
+        <p class="header-subtitle">不务正业的现役程序猿</p>
+        <form><input type="text" class="search" placeholder="点我会很爽。。。"></form>
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                    </ul>
+                </div>
+            </div>
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                            <li><a href="/blog/">Blog</a></li>
+                                                                        
+<li><a href="/about/">About</a></li>             
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                           <li id="Email"><a class="Email" target="_blank" href="mailto:albinyewen@gmail.com" title="Email"></a></li>                           
+                           <li id="Twitter"><a class="Twitter" target="_blank" href="https://twitter.com/zybyy" title="Twitter"></a></li>
+                           <li id="Facebook"><a class="Facebook" target="_blank" href="https://www.facebook.com/hialbin" title="Facebook"></a></li>
+                           <li id="RSS"><a class="RSS" target="_blank" href="/rss.xml" title="Twitter"></a></li>
+                        </ul>
+                    </nav>
+                </section>
+                                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                    </div>
+                </section>                
+            </div>
+        </div>
+    </header>                
+</div>
+
+    </div>
+    <div class="mid-col">
+      <div class="body-wrap"><article id="post-blog-building" class="article article-type-post" itemscope="" itemprop="blogPost" style="opacity: 1;">
+<div class="article-inner">
+<header class="article-header">
+<h1 class="article-title"></h1>
+</header>
+<div class="article-entry" itemprop="articleBody">
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> 为什么会有这个东西</h2>
+<div class="outline-text-2" id="text-1">
+<p alt="JIRA">
+<img src="http://7xq9bs.com1.z0.glb.clouddn.com/org/jira-python.png" alt="JIRA" /> <a href="http://10.1.29.87:8080/browse/SXD-2066">JIRA</a>
+</p>
+
+<p>
+python我也只是用她来做一些辅助性的工作，所以对她也是一知半解，今天主要目的是给不了解她的同学介绍一下她，和她很熟的，就当我是抛砖引玉，希望有大牛来带我们飞。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> 简介</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+语言应该都有自己所擅长的领域，甚至是专门为了某些需求而生。而 <b>Python</b> 居然是著名的“龟叔”Guido van Rossum在1989年圣诞节期间，为了打发无聊的圣诞节而编写的一个编程语言。可想而知程序员无聊起来是多么的可怕。现在我们用的语言是不是大多数是因为某位大牛无聊了。
+</p>
+
+<p>
+<b>Python</b> 发展到现在，她主要涉及了哪些领域。
+</p>
+</div>
+
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> 游戏</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>最早的cocos2d-iphone就是从python的pycocos移植过来的。由于她寄生于好多语言之上，把她当lua用的也是有的，当然还有早期的unity3d boo。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.2</span> WEB服务</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>许多大型网站就是用Python开发的，例如YouTube、Instagram，还有国内的豆瓣。很多大公司，包括Google、Yahoo等，甚至NASA（美国航空航天局）都大量地使用Python。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.3</span> 工具</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><b>Python</b> 有一个非常好用的包管理软件, <b>pip</b>, 比如我们现在想连接数据库 <b>pip search mysql</b> 然后根据找到的进行安装，比如 <b>pip install PyMySQL3</b> 。如果想看它的文档，可以直接访问 <a href="https://pypi.python.org/pypi/PyMySQL3">https://pypi.python.org/pypi/PyMySQL3</a> ，这里的最后一个就是我们所安装的包名。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.4</span> 管理脚本</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>GNU下面有一大堆的sh，bash，zsh，ksh，而windows却是bat。如果想写一条简单的部署脚本， <b>Python</b> 是个不错的选择。比如svn，或者git的hooks</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">3</span> 简单的小例子</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">3.1</span> 策划</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">3.1.1</span> <b>Python</b> 在我们公司的策划层面已经用到很多了比如</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li>x2x: xls 转换成xml,并且检查数据规范</li>
+<li>x2p: xls 转换成protobuf的binary，检查数据规范</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.2</span> 美术</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">3.2.1</span> 处理psd</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+当然ps有自己的脚本(javascript),而且还有那么多api要看，如果只是想做一些简单的处理就比较麻烦了
+</p>
+<ul class="org-ul">
+<li>根据已经有psd替换其中的文本，文本来自策划的excel</li>
+<li>根据策划的要求，制作不同规格的图片</li>
+<li>压缩或者其它处理</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">3.2.2</span> 3dmax</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+3dmax的脚本分两种
+</p>
+<ul class="org-ul">
+<li>一种是自己解释器里的 <b>Python</b> ，要求必须装了3dmax</li>
+<li>脱离软件的 <b>Python</b>  <a href="http://docs.autodesk.com/3DSMAX/16/ENU/3ds-Max-Python-API-Documentation/index.html">http://docs.autodesk.com/3DSMAX/16/ENU/3ds-Max-Python-API-Documentation/index.html</a></li>
+</ul>
+
+<div class="figure">
+<p><img src="http://7xq9bs.com1.z0.glb.clouddn.com/org/3dmax-python.png" alt="3dmax-python" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">3.3</span> 测试</h3>
+<div class="outline-text-3" id="text-3-3">
+</div><div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">3.3.1</span> 模拟操作</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+会了 <b>Python</b> 即使没有按键精灵也可以模拟操作，如果你熟的话，还可以制作复杂的操作流程。
+如果对数据协议了解的话，甚至可以截取客户端与服务器之间的通信，精确的模拟操作。不在像按键精灵等类似软件一样纯粹的模拟鼠标和键盘。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">3.4</span> 程序</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+这个就太多了。。。都不知道怎么去说她了，你怎么这么能干。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline44" class="outline-2">
+<h2 id="orgheadline44"><span class="section-number-2">4</span> 基本语法</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">4.1</span> 简述</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li># 之后表注释</li>
+<li>通常一个语句一行，用标准换行(\n)</li>
+<li>\ 表示继续上一行</li>
+<li>; 将两个语句连接在一行</li>
+<li>: 将代码块的头和体分开，比如 if express :</li>
+<li>python的代码块不是用花括号体现，而是用相同的缩进表示</li>
+<li>python 文件以模块的形式组织</li>
+</ol>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">4.1.1</span> 讨厌的编码</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<div class="org-src-container">
+
+<pre class="src src-python">#!/bin/env python
+# coding=utf-8
+</pre>
+</div>
+
+<p>
+第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；
+第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。
+申明了UTF-8编码并不意味着你的.py文件就是UTF-8编码的，必须并且要确保文本编辑器正在使用UTF-8 without BOM编码
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python">print 'ABC'.encode('ascii')
+print u'中文'.encode('utf-8')
+print u'中文'.encode('ascii')
+print b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')
+</pre>
+</div>
+
+<p>
+纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。
+在bytes中，无法显示为ASCII字符的字节，用 <b>\x##</b> 显示。
+反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法
+python 的格式化操作与C语言是一样的，如果不确定用什么 <b>%s</b> 是永远有效的。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">4.2</span> 数据类型与变量</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">4.2.1</span> 基本数据类型</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+在用的时候不用过分的去在意，但要知道它的类型有哪些，支持到什么程度，不要用错就OK
+</p>
+<ol class="org-ol">
+<li>整数，可以很长很长</li>
+<li>浮点数，也可以很长很长</li>
+<li>字符串，上面已经恶心过了</li>
+<li>布尔值，True\False, 不是true\false</li>
+<li>空值，None</li>
+</ol>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline18"></a>先看一小段简单的代码<br  /><div class="outline-text-5" id="text-4-2-1-1">
+<div class="org-src-container">
+
+<pre class="src src-python">#!/bin/env python
+# coding=utf-8
+
+from fractions import Fraction
+
+def main():
+"""
+我们来讲一下最简单的 python 程序：
+解释型语言，运行慢，开发快。最常见于网站，其次是日常小工具，或者代替shell做管理脚本。
+它的设计就是冲着“优雅“…“简单“…“明确“，看起来图森破。
+ps:(我不是注释，我是字符串，但我有注释的效果)
+"""
+2 # 这样真的不会报错吗 ，上边那些是字符串，我是整型，应该不会错吧
+
+a, b, c, d = "sb", 501 // 2, 501 / 2.0, 10 ** 192 / 3.0 # 你真的好长
+b, a = a,b
+print "a is type (%s) : %s" % (type(a), a)
+print "b is type (%s) : %s" % (type(b), b)
+print "c is type (%s) : %s" % (type(c), c)
+print "d is type (%s) : %s" % (type(d), d)
+
+print u"来点复杂的吧"
+i_am_a_fraction = Fraction(2, 6)
+print str(i_am_a_fraction)
+i_am_a_fraction += Fraction(7, 9)
+print i_am_a_fraction
+i_am_a_fraction += 1
+print i_am_a_fraction
+i_am_a_fraction += 1.0
+print i_am_a_fraction
+
+complex_number = (1-0.3j) * (3+0.7j)
+print complex_number
+complex_number -= 1
+complex_number *= 2
+try:
+print "complex_number.real = " + c.real + ", complex_number.imag = " + c.imag
+except TypeError as e:
+print e
+print "complex_number.real = %f, complex_number.imag = %fj"\
+% (complex_number.real, complex_number.imag)
+
+
+if __name__ == '__main__':
+main()
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline19"></a>ps:字符串的一些API，适用接下来的list#<br  /><div class="outline-text-5" id="text-4-2-1-2">
+<ol class="org-ol">
+<li>substring, 变态的要来了</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">a_str = 'hey, come on baby, sub me!'
+print a_str[5:9]
+print a_str[5:]
+print a_str[:-9]
+</pre>
+</div>
+<p>
+output:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">come
+come on baby, sub me!
+hey, come on baby
+</pre>
+</div>
+<ol class="org-ol">
+<li>reverssring</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">a_str = '0123456789'
+print a_str[::-1]
+for i in range(10):
+print a_str[i::-1]
+print a_str[::-2]
+for i in range(5):
+print a_str[i::-2]
+</pre>
+</div>
+<p>
+output:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">9876543210
+0
+10
+210
+3210
+43210
+543210
+6543210
+76543210
+876543210
+9876543210
+97531
+0
+1
+20
+31
+420
+</pre>
+</div>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">4.2.2</span> list and tuple</h4>
+<div class="outline-text-4" id="text-4-2-2">
+</div><ol class="org-ol"><li><a id="orgheadline21"></a>list<br  /><div class="outline-text-5" id="text-4-2-2-1">
+<p>
+list也就是数组，但不是c++的list,它更像PHP，或者JS，它说下来也就是下面几点：
+</p>
+<ol class="org-ol">
+<li>变长</li>
+<li>类型不要求一致</li>
+<li>取长度的时候用的是 len, 这一点基本与其它类型都一样</li>
+<li>不是push,是append.</li>
+<li>有越界风险，取最后一个用somelist[-1]</li>
+<li>可以嵌套，与第二点相符</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">a_list = [i*i for i in range(10)]
+last_one = a_list[-1]
+print last_one
+print a_list.pop()
+print a_list
+
+mix_list = ["a", 1, [None, True, False], {'a':1, 'b':"2"}, ("sb", 520)]
+mix_list.append("2b")
+print mix_list
+</pre>
+</div>
+<p>
+output:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">9
+9
+[0, 1, 4, 9, 16, 25, 36, 49, 64]
+['a', 1, [None, True, False], {'a': 1, 'b': '2'}, ('sb', 520), '2b']
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline22"></a>tuple<br  /><div class="outline-text-5" id="text-4-2-2-2">
+<p>
+另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改。
+需要注意的是定义单个tuple的时候，不能用 <b>t = (1)</b>,这表示的是 <b>t = 1</b> ，而是要用 <b>t = (1, )</b>
+</p>
+
+<p>
+ps: enmuator
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">4.2.3</span> dict and set</h4>
+<div class="outline-text-4" id="text-4-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline24"></a>dict<br  /><div class="outline-text-5" id="text-4-2-3-1">
+<p>
+它就是一个map,安全取值有两种方式，取之前用 <b>in</b>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ptyhon">if key in d:
+ d[key]
+</pre>
+</div>
+<p>
+第二种用get
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">d.get(key)
+d.get(key, default) # return default
+</pre>
+</div>
+<p>
+删除只需要 <i><b>d.pop(key)</b></i>, value会自动删除
+ps:上面的list 中用到了dict
+</p>
+</div></li>
+
+<li><a id="orgheadline25"></a>set<br  /><div class="outline-text-5" id="text-4-2-3-2">
+<p>
+<i><b>aset.add(key)</b></i>
+<i><b>aset.remove(key)</b></i>
+就这两个api，另外注意它是唯一的，无序的就OK
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">4.3</span> 控制语句</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+首先要说明的是，python没有 <i><b>switch</b></i>
+</p>
+</div>
+
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">4.3.1</span> 条件判断</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+<i><b>if elif else</b></i> 简单的不多说了，不过用 if 可以写三元运算 <i><b>V1 if X else V2</b></i> 。 如果确定 V1不是空字符串('')的话，也可以： <i><b>(X and V1) or V2</b></i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">4.3.2</span> 循环</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+要注意的是多层循环中break是跳出当前循环
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">for i in range(3):
+ print "i : %s" % i
+ for j in range(3):
+     print "j : %s" % j
+     for k in range(3):
+         if k == 1:
+             break
+         print "k : %s" % k
+</pre>
+</div>
+<p>
+如果要跳出所有循环，可以raise一个异常，在外边捕捉，或者定义成函数跳出
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">try:
+ for i in range(3):
+     print "i : %s" % i
+     for j in range(3):
+         print "j : %s" % j
+         for k in range(3):
+             if k == 1:
+                 raise Exception("test")
+             print "k : %s" % k
+except Exception as e:
+ print e
+</pre>
+</div>
+<p>
+实在想跳出指定的，可以用for else语句，如果for正常执行完，会调用else语句块
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">for i in range(3):
+ print "i : %s" % i
+ for j in range(3):
+     print "j : %s" % j
+     for k in range(3):
+         break
+     else:continue
+     break
+ else:continue
+ break
+</pre>
+</div>
+<p>
+output
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">i : 0
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+i : 1
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+i : 2
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+================================================================================
+i : 0
+j : 0
+k : 0
+test
+================================================================================
+i : 0
+j : 0
+-----------------------------------------------------
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">4.4</span> 函数注意点</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+任意函数都有反回值，如果没有 <i><b>return</b></i>,返回值是 <i><b>None</b></i>
+</p>
+</div>
+<div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31"><span class="section-number-4">4.4.1</span> 默认参数</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<div class="org-src-container">
+
+<pre class="src src-python">def xxx(arg1, arg2 = defaultvalue):
+ pass
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32"><span class="section-number-4">4.4.2</span> 可变参数</h4>
+<div class="outline-text-4" id="text-4-4-2">
+<div class="org-src-container">
+
+<pre class="src src-python">def calc(numbers):
+ sum = 0
+ for n in numbers:
+     sum = sum + n * n
+ return sum
+
+calc((1,2,3,4,5))
+
+def calc(*numbers):
+ sum = 0
+ for n in numbers:
+     sum = sum + n * n
+     return sum
+
+args = (1,2,3,4,5)
+calc(*args) # 可以把tuple变成参数依次传入
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33"><span class="section-number-4">4.4.3</span> 关键字参数</h4>
+<div class="outline-text-4" id="text-4-4-3">
+<div class="org-src-container">
+
+<pre class="src src-python">def person(name, age, **kw):
+ if 'city' in kw:
+     # 有city参数
+     pass
+ if 'job' in kw:
+     # 有job参数
+     pass
+     print('name:', name, 'age:', age, 'other:', kw)
+</pre>
+</div>
+<p>
+如果想限制传入的值可以用
+<i><b>def person(name, age, *, city, job)</b></i> ,那么city与job就是必填项，当然这里也可以用默认值，比如 <i><b>def person(name, age, *,city="Shangehai", job)</b></i> ,注意一下关键字参数如果用默认值是不用关心顺序的。
+dict可以在前边加上'**',做为关键字参数
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">extra = {'city': 'Beijing', 'job': 'Engineer'}
+person("SB", 28, **extra)
+</pre>
+</div>
+<p>
+TEST:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">def f1(a, b, c=0, *args, **kw):
+ print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+def f2(a, b, c=0, *, d, **kw):
+ print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">4.5</span> 如何变得简洁</h3>
+<div class="outline-text-3" id="text-4-5">
+</div><div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">4.5.1</span> 切片</h4>
+<div class="outline-text-4" id="text-4-5-1">
+<p>
+还记得之前的substring吗，切片操作还可以用于 <i>list</i>, <i>tuple</i>,另外还有一种，/*a[:]*/ 会拷贝出一个新的
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">4.5.2</span> 迭代</h4>
+<div class="outline-text-4" id="text-4-5-2">
+<p>
+比如遍历一个dict
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">d = {'a':1, 'b':2, 'c':3}
+for k in d:
+ print d
+
+for k, v in d:
+ print k
+ print v
+</pre>
+</div>
+<p>
+list, tuple, string
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ptyhon">for ch in 'abcdefg':
+    print ch
+for v in [1,2,3,4]:
+    print v
+for t in (1,2,3,4,5):
+    print t
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37"><span class="section-number-4">4.5.3</span> 列表生成式</h4>
+<div class="outline-text-4" id="text-4-5-3">
+<p>
+上边在说到list的时候提到过一次
+<i><b>[a + b for a in A if EXP for b in B if EXP]</b></i>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">a = list(range(1,100))
+# a = [1,2,3, ...,99, 100]
+(i**2 for i in range(10) if i % 2 == 0)
+# 0到10之间偶数的平方
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline38" class="outline-4">
+<h4 id="orgheadline38"><span class="section-number-4">4.5.4</span> yield</h4>
+<div class="outline-text-4" id="text-4-5-4">
+<p>
+上边说的都是一些简单的，下边来生成一个斐波拉契数列，好像上边的做不了。。。。
+先来打印一下
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+</pre>
+</div>
+<p>
+但现在的需要不是打印，而是生成一个迭代器
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+</pre>
+</div>
+<p>
+好像与上边的没有区别，只是在第四行把print变成了yield，只样返回值不在是**done**了， generator
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">4.5.5</span> map and reduce</h4>
+<div class="outline-text-4" id="text-4-5-5">
+<p>
+上边的**列表生成式**,可以把一个列表变成另一个，但如要求来的更复杂一点，比函数 f(x).
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">res = map(f, (1,2,3))
+# res = (f(1), f(2), f(3))
+</pre>
+</div>
+<p>
+reduce和map类似，它的函数要求为f(x, y)
+sample：假设python 没有提供int(x) 函数，现在来实它
+<i><b>reduce(f, (a,b,c,d)) = f(f(f(a,b),c),d)</b></i>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">def char2num(s):
+    return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
+def str2int(s):
+    return reduce(lambda x, y: x * 10 + y, map(char2num, s))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">4.5.6</span> filter and sorted</h4>
+<div class="outline-text-4" id="text-4-5-6">
+<p>
+filter 与 map的区别在于, <i><b>filter</b></i> 要求f(x)返回一个布尔值，来判断是否保留x
+sorted,这个还是看代码吧
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">from operator import itemgetter
+
+L = ['bob', 'about', 'Zoo', 'Credit']
+
+print(sorted(L))
+print(sorted(L, key=str.lower))
+
+students = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+print(sorted(students, key=itemgetter(0)))
+print(sorted(students, key=lambda t: t[1]))
+print(sorted(students, key=itemgetter(1), reverse=True))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41"><span class="section-number-4">4.5.7</span> lambda</h4>
+<div class="outline-text-4" id="text-4-5-7">
+<p>
+<i><b>lambda x : f(x)</b></i> 其实就等于
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">def func(x):
+    return f(x)
+</pre>
+</div>
+<p>
+需要注意的是lambda只能有一个表达式，并且不需要写return,其它的与function没有区别
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python">map(lambda x: x * x, (1,2,3,4,5))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">4.5.8</span> 装饰器</h4>
+<div class="outline-text-4" id="text-4-5-8">
+<p>
+这东西它是个什么呢，在C#，JAVA， AS3中我们都有用过，举个例子
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+def log(func):
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+@log
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+def log(text):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+@log("custom")
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+import functools
+
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+@log
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+
+import functools
+
+def log(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+@log("test")
+def say():
+    print "Hi, I am a function with name 'say'"
+say()
+</pre>
+</div>
+
+<p>
+未完待续 <a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">参考</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="post__action">
+      <a id="icon-heart" class="fontello" href="javascript:donate();"></a>
+  </div>
+
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+     var duoshuoQuery = {short_name:'albin'};
+     (function() {
+     var dsdiv = $('.ds-thread');
+     dsdiv.attr("data-title", document.title);
+     dsdiv.attr("data-url",document.location.href);
+     dsdiv.attr("data-thread-key", document.location.pathname);
+       var ds = document.createElement('script');
+       ds.type = 'text/javascript';ds.async = true;
+       ds.src = 'http://static.duoshuo.com/embed.js';
+       ds.charset = 'UTF-8';
+       (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+       $('.ds-thread').css('display','block');
+     })();
+    </script>
+</div>
+
+<script src="/js/run_prettify.js"></script>
+</div>
+</div>
+</article></div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 <a href="http://albin.ga">albin.ga</a>
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv">
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv">
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>    
+    </div>
+    <script src="/js/main.js" type="text/javascript"></script>
+    <div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+                                    </script>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>  
+</body>
+</html>
