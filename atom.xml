@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Albin Note]]></title>
+  <subtitle><![CDATA[不务正业的现役程序猿]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://albin.ga/"/>
+  <updated>2016-01-13T07:44:47.694Z</updated>
+  <id>http://albin.ga/</id>
+  
+  <author>
+    <name><![CDATA[albin]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/hexo-org-test/"/>
+    <id>http://albin.ga/笔记/hexo-org-test/</id>
+    <published>2016-01-13T07:44:47.694Z</published>
+    <updated>2016-01-13T07:44:47.694Z</updated>
+    <content type="html"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>hello, orgmode</title>
+<!-- 2016-01-13 三 15:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="root">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">hello, orgmode</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Orgmode</a>
+<ul>
+<li><a href="#sec-1-1">1.1. why orgmode</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Orgmode</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> why orgmode</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+
+<pre class="src src-js">alert("hello");
+</pre>
+</div>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">test table</th>
+<th scope="col" class="left">col1</th>
+<th scope="col" class="left">col2</th>
+<th scope="col" class="left">col3</th>
+<th scope="col" class="left">col5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">1</td>
+<td class="left">2</td>
+<td class="left">3</td>
+<td class="left">4</td>
+<td class="left">5</td>
+</tr>
+
+<tr>
+<td class="left">albin</td>
+<td class="left">test</td>
+<td class="left">fuck</td>
+<td class="left">ni</td>
+<td class="left">,,</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-13 Wed 15:19&gt;</span></span></p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2016-01-13 三 15:44</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/" target="_blank" rel="external">Emacs</a> 24.5.2 (<a href="http://orgmode.org" target="_blank" rel="external">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer" target="_blank" rel="external">Validate</a></p>
+</div>
+</body>
+</html>
+]]></content>
+    <summary type="html">
+    <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-stri]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[我的个人简历]]></title>
+    <link href="http://albin.ga/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/%E7%AE%80%E5%8E%86/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/"/>
+    <id>http://albin.ga/个人信息/简历/我的个人简历/</id>
+    <published>2016-01-12T03:38:39.025Z</published>
+    <updated>2016-01-12T03:38:39.025Z</updated>
+    <content type="html"><![CDATA[<p>#基础信息<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个员工</span></span><br><span class="line">employer = new Programer(name = <span class="string">"朱亚斌"</span>, age = <span class="number">28</span>, sex = Sex.MALE)</span><br></pre></td></tr></table></figure></p>
+<p>##工作经验<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印工作经验配置表</span></span><br><span class="line">employer.work_experience( <span class="string">'2011-07'</span>, <span class="string">'2015-5'</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#24037;&#20316;&#32463;&#39564;:&#10;  - &#19978;&#28023;&#20912;&#21160;&#23089;&#20048;(&#39029;&#28216;&#37096;&#38376;):&#10;    &#36215;&#22987;: 2011-07~ 2014-04&#10;    &#39033;&#30446;:&#10;      - &#26368;&#19977;&#22269;:&#10;        &#23703;&#20301;: &#21069;&#31471;&#31243;&#24207;&#21592;&#10;        &#35821;&#35328;: as3&#10;        &#32844;&#36131;: &#37096;&#20998;ui&#10;      - &#21160;&#29289;&#22823;&#25112;:&#10;        &#23703;&#20301;: &#21069;&#31471;&#31243;&#24207;&#21592;&#10;        &#35821;&#35328;: as3&#10;        &#32844;&#36131;:&#10;          - &#25112;&#26007;&#27169;&#22359;&#10;          - &#24037;&#20855;&#24320;&#21457;&#10;      - &#26292;&#36208;&#30340;&#25351;&#23574;:&#10;        &#23703;&#20301;: &#21069;&#31471;&#31243;&#24207;&#21592;&#10;        &#35821;&#35328;: [c++,  javascript]&#10;        &#32844;&#36131;: [&#24213;&#23618;&#25645;&#24314;, protobuf-cocos2d-js-tools, &#28909;&#26356;&#26032;&#37096;&#32626;&#24037;&#20855;]&#10;  - &#29233;&#28216;&#29233;&#25103;:&#10;    &#36215;&#22987;: 2014-04~2015-05&#10;    &#39033;&#30446;:&#10;      - SD&#25954;&#36798;&#22823;&#20316;&#25112;:&#10;        &#35821;&#35328;: as3&#10;        &#23703;&#20301;: &#21069;&#31471;&#20027;&#31243;&#10;        &#32844;&#36131;: ---&#62;&#10;          &#27721;&#21270;&#24037;&#20855;, &#26412;&#22320;&#21270;&#24320;&#21457;, &#26356;&#25442;&#24213;&#23618;&#36164;&#28304;&#21152;&#36733;&#26041;&#24335;, &#28155;&#21152;robotlegs,&#10;          &#37096;&#32626;&#24037;&#20855;&#24320;&#21457;, &#26381;&#21153;&#22120;&#25645;&#24314;, jira-confluences&#24037;&#20855;, git-server&#10;      - &#21170;&#33310;&#22242;demo&#10;      - &#21170;&#36305;&#22242;demo</span><br></pre></td></tr></table></figure>
+<p>##语言能力<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pro_skills = filter(<span class="keyword">lambda</span> skill.name : skill.level &gt;= SkillLevel.PRO, employer.skills)</span><br><span class="line"><span class="keyword">print</span> pro_skills</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#34;python&#34;, &#34;nodejs&#34;, &#34;as3&#34;, &#34;c#&#34;, &#34;c++&#34;]</span><br></pre></td></tr></table></figure>
+<p>##屌丝吐糟<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">employer.thrown_down(<span class="string">"""</span><br><span class="line">做为一个标准的程序员,这行业的特性我几乎都有,我一直想做一个自己喜欢,或者能被大众喜欢的游戏,无奈一直</span><br><span class="line">不能如愿.在行业里摸爬滚打这些年,经历了ios开发到as3 webgame的颠峰,在转而为cocoser,直至如今的</span><br><span class="line">unity.经历了无数上海凌晨街上稀疏的人影,游戏demo开始时的憧憬,败北时老板的背影,我一度想过退缩,但</span><br><span class="line">屌丝不服输的品质然我越挫越勇,以及对代码的执恋,让我坚定的相信专心致意毕力于其事而后可!</span><br><span class="line"></span><br><span class="line">"""</span>)</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>#基础信息<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><b]]>
+    </summary>
+    
+      <category term="Unity3D" scheme="http://albin.ga/tags/Unity3D/"/>
+    
+      <category term="游戏" scheme="http://albin.ga/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="简历" scheme="http://albin.ga/tags/%E7%AE%80%E5%8E%86/"/>
+    
+      <category term="个人信息" scheme="http://albin.ga/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/"/>
+    
+      <category term="简历" scheme="http://albin.ga/categories/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/%E7%AE%80%E5%8E%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Sublime Text的package-control安装]]></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/sublime3_package_control/"/>
+    <id>http://albin.ga/笔记/sublime3_package_control/</id>
+    <published>2015-10-10T05:56:06.000Z</published>
+    <updated>2016-01-12T03:38:39.023Z</updated>
+    <content type="html"><![CDATA[<h1 id="Package_Control"><a href="#Package_Control" class="headerlink" title="Package Control"></a>Package Control</h1><p>记录一下方便以后查找，以下翻译自外文。</p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u547D_u4EE4_u884C_u81EA_u52A8_u5B89_u88C5"><a href="#u547D_u4EE4_u884C_u81EA_u52A8_u5B89_u88C5" class="headerlink" title="命令行自动安装"></a>命令行自动安装</h3><p>安装的最简单的方法是通过sublime的文本控制台。控制台通过访问CTRL +` 快捷方式或 View &gt; Show Console。一旦打开，粘贴以下代码</p>
+<p>sublime text 3<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure></p>
+<p>sublime text 2<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(ipp) <span class="keyword">else</span> <span class="keyword">None</span>; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="keyword">None</span>; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>此代码创建安装的软件包文件夹，你（如果需要的话），然后下载 Package Control.sublime包进去。下载将通过HTTP，而不是HTTPS进行，由于Python标准库的限制，但是该文件将使用SHA-256验证。</p>
+<h3 id="u624B_u52A8_u5B89_u88C5"><a href="#u624B_u52A8_u5B89_u88C5" class="headerlink" title="手动安装"></a>手动安装</h3><p>如果由于某种原因控制台不能安装（墙内），请执行以下步骤手动安装程序包控制：</p>
+<p>点击 Preferences &gt; Browse Packages … 菜单<br>浏览了一个文件夹，然后进入安装的软件包/ 文件夹<br>下载包<a href="https://packagecontrol.io/Package%20Control.sublime-package" target="_blank" rel="external">Control.sublime包</a> ，并将其复制到安装的软件包/目录<br>重新Sublime Text.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Package_Control"><a href="#Package_Control" class="headerlink" title="Package Control"></a>Package Control</h1><p>记录一下方便以后查找，以下翻译自外文]]>
+    </summary>
+    
+      <category term="package-control" scheme="http://albin.ga/tags/package-control/"/>
+    
+      <category term="sublime" scheme="http://albin.ga/tags/sublime/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[c++ 11 Lambda]]></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/c++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://albin.ga/笔记/c++学习笔记/</id>
+    <published>2015-10-09T03:08:44.000Z</published>
+    <updated>2016-01-12T03:38:39.023Z</updated>
+    <content type="html"><![CDATA[<h1 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h1><h2 id="u53D8_u91CF_u7684_u4F5C_u7528_u57DF"><a href="#u53D8_u91CF_u7684_u4F5C_u7528_u57DF" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p>类似nodejs,python,as3等。只不过c++传参的时候有引用与拷贝之分<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">1</span>, c = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> m1 = [a, &amp;b, &amp;c]() <span class="keyword">mutable</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> m2 = [a, b, &amp;c]() <span class="keyword">mutable</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a &lt;&lt; b &lt;&lt; c &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">            a = <span class="number">4</span>; b = <span class="number">4</span>; c = <span class="number">4</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        a = <span class="number">3</span>; b = <span class="number">3</span>; c = <span class="number">3</span>;</span><br><span class="line">        m2();</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    a = <span class="number">2</span>; b = <span class="number">2</span>; c = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    m1();                             <span class="comment">// calls m2() and prints 123</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; a &lt;&lt; b &lt;&lt; c &lt;&lt; <span class="string">'\n'</span>; <span class="comment">// prints 234</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="generic_algorithm"><a href="#generic_algorithm" class="headerlink" title="generic algorithm"></a>generic algorithm</h2><p>vector删除元素排序等 generic algorithm<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;functional&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; c = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line">    c.erase(<span class="built_in">std</span>::remove_if(c.begin(), c.end(), [x](<span class="keyword">int</span> n) &#123; <span class="keyword">return</span> n &lt; x; &#125;), c.end());</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"c: "</span>;</span><br><span class="line">    <span class="built_in">std</span>::for_each(c.begin(), c.end(), [](<span class="keyword">int</span> i)&#123; <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span>; &#125;);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// the type of a closure cannot be named, but can be inferred with auto</span></span><br><span class="line">    <span class="keyword">auto</span> func1 = [](<span class="keyword">int</span> i) &#123; <span class="keyword">return</span> i + <span class="number">4</span>; &#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"func1: "</span> &lt;&lt; func1(<span class="number">6</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// like all callable objects, closures can be captured in std::function</span></span><br><span class="line">    <span class="comment">// (this may incur unnecessary overhead)</span></span><br><span class="line">    <span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>)&gt; func2 = [](<span class="keyword">int</span> i) &#123; <span class="keyword">return</span> i + <span class="number">4</span>; &#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"func2: "</span> &lt;&lt; func2(<span class="number">6</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c: 5 6 7&#10;func1: 10&#10;func2: 10</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://en.cppreference.com/w/cpp/language/lambda" target="_blank" rel="external">参考</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h1><h2 id="u53D8_u91CF_u7684_u4F5C_u7528_u57DF"><a href="#u5]]>
+    </summary>
+    
+      <category term="Lambda" scheme="http://albin.ga/tags/Lambda/"/>
+    
+      <category term="c++" scheme="http://albin.ga/tags/c/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ccs2js guides]]></title>
+    <link href="http://albin.ga/cocos/ccs2js/"/>
+    <id>http://albin.ga/cocos/ccs2js/</id>
+    <published>2015-07-30T11:50:44.000Z</published>
+    <updated>2016-01-12T03:38:39.023Z</updated>
+    <content type="html"><![CDATA[<p>最好结合puremvc使用，用mediator,操作导出的view代码，以避免手动更改。当然如果不用，也可以继承导出的js类来避免手动更改导出代码。<br>现在已经去掉 puremvc 结合的代码,如有需要自行添加</p>
+<h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install ccs2js -g</span><br></pre></td></tr></table></figure>
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>切换到cocostudio资源导出目录,里边应该包含若干个json文件,cocostduio可以设置导出json格式的文件.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /path/to/cocostudio/export/res&#10;ccs2js -s &#60;fileName&#62; -d &#60;exportDir&#62;</span><br></pre></td></tr></table></figure></p>
+<h1 id="pyqt_2Clua_u7684_u542F_u53D1"><a href="#pyqt_2Clua_u7684_u542F_u53D1" class="headerlink" title="pyqt,lua的启发"></a>pyqt,lua的启发</h1><p>最近在做一个cocos2d-js的小项目,用了官方的cocostudio觉得很不爽,有了脚本,ui还是用配置表的方式进行加载解析,无论是从效率还是从资源大小都不如直接在脚本写好.唯一要做的就是生成这样一个ui脚本.之前有写过pyqt,里边的方式就是我喜欢的,用ui工具生成一个view的类,项目中只要继承该类,便可以扩展ui功能,qt生成的代码,不要去修改它,基本上就等于是把生成的代码当成资源.cocos2d-js,用的js,我们可以用一个很方便的框架来组织代码,<a href="https://github.com/albinyewen/puremvc-js-multicore-framework" target="_blank" rel="external">puremvc</a>,对,是它,是它,就是它,actionscript时代,flaser常用的框架.这样一来,生成出来的代码,我们多了一种处理方式,那就是把它当成view层,不用去改它,所有扩展功能放在mediator中去.不仅如此,我们还可以把其它中用到的资源,如图片,字体,声音,粒子等放到场景的model层中去,比如BaseSceneModel,该类中添加loadScene,unloadScene,等一些通用接口.<br><img src="/img/npm-package-1.png" alt="大致的结构"></p>
+<h1 id="cocostudio_u5BFC_u51FA_u7684json_u6587_u4EF6"><a href="#cocostudio_u5BFC_u51FA_u7684json_u6587_u4EF6" class="headerlink" title="cocostudio导出的json文件"></a>cocostudio导出的json文件</h1><p><img src="/img/npm-package-2.png" alt="以官方给出的Login为示例"><br>    稍微做了一些更改,加了一个时间轴动画,设置了easingType,animations.<br>    我们可以看一下cocos2d给出的json文件解析方法,唯一要做的是把解析部分,改成相应的javascript代码.这里推荐tenjin模板,写好不同控制的js代码,用json数据去填充就ok.<a href="https://github.com/albinyewen/ccs2js" target="_blank" rel="external">ccs2js</a></p>
+<h2 id="u5B9E_u73B0_u4E86_u5B98_u65B9_u4E2D_u9664_u4E86audio_u4E0E_u7C92_u5B50_u7684_u6240_u6709_u63A7_u4EF6"><a href="#u5B9E_u73B0_u4E86_u5B98_u65B9_u4E2D_u9664_u4E86audio_u4E0E_u7C92_u5B50_u7684_u6240_u6709_u63A7_u4EF6" class="headerlink" title="实现了官方中除了audio与粒子的所有控件"></a>实现了官方中除了audio与粒子的所有控件</h2><ul>
+<li>action (timeline动画)</li>
+<li>button</li>
+<li>checkbox</li>
+<li>custom (就是node,把一个拼好的node当成一个自定义控件)</li>
+<li>imageview</li>
+<li>listview</li>
+<li>pageview</li>
+<li>panel</li>
+<li>scene</li>
+<li>scrollview</li>
+<li>slider</li>
+<li>sprite</li>
+<li>text</li>
+<li>textbmfont</li>
+<li>textfield (包括input)</li>
+</ul>
+<h1 id="u4E0D_u8DB3_u4E4B_u5904"><a href="#u4E0D_u8DB3_u4E4B_u5904" class="headerlink" title="不足之处"></a>不足之处</h1><ul>
+<li>对于一些需要代码交互,换言之,mediator层中需要控制的控件,控件名约定为以”_”开头,看起来比较累</li>
+<li>粒子与声音暂未添加(老板有其它的活要做)</li>
+<li>生成的代码没有格式化(时间啊,时间啊!)</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最好结合puremvc使用，用mediator,操作导出的view代码，以避免手动更改。当然如果不用，也可以继承导出的js类来避免手动更改导出代码。<br>现在已经去掉 puremvc 结合的代码,如有需要自行添加</p>
+<h1 id="install"><a href=]]>
+    </summary>
+    
+      <category term="cocos2s-js" scheme="http://albin.ga/tags/cocos2s-js/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="cocos" scheme="http://albin.ga/categories/cocos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Emacs网易云音乐 瞎折腾]]></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/Emacs%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    <id>http://albin.ga/笔记/Emacs网易云音乐/</id>
+    <published>2015-06-17T08:19:23.000Z</published>
+    <updated>2016-01-18T11:06:16.236Z</updated>
+    <content type="html"><![CDATA[<p>#在Emacs播放音乐<br>emacs可以调用mplayer来播放音乐,已经有很多实现的方式来实现emacs下听音的mode.时下最热门的音乐软件莫过于网易云音乐,今天就来实现一个简单的网易云音乐Emacs版本.</p>
+<h2 id="u5DE5_u5177_u51C6_u5907"><a href="#u5DE5_u5177_u51C6_u5907" class="headerlink" title="工具准备"></a>工具准备</h2><ul>
+<li>charles 查看网易云音乐的API</li>
+<li>网易云音乐客户端 没它也没法截包</li>
+<li>emacs 咱就是在这里边整这个事的</li>
+<li>mplayer 播放音乐</li>
+</ul>
+<h2 id="u64AD_u653Eurl"><a href="#u64AD_u653Eurl" class="headerlink" title="播放url"></a>播放url</h2><p>确定mplayer已经装好,在osx下<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mplayer</span><br></pre></td></tr></table></figure></p>
+<p>然后把路径添加下emacs的path下</p>
+<h3 id="u8C03_u7528mplayer"><a href="#u8C03_u7528mplayer" class="headerlink" title="调用mplayer"></a>调用mplayer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-process&#10;&#21551;&#21160;&#19968;&#20010;&#26032;&#30340;&#23376;&#36827;&#31243;&#21435;&#36305;&#19968;&#20010;&#36719;&#20214;&#25110;&#21629;&#20196;&#10;``` lisp&#10;(start-process &#34;my-process&#34; &#34;foo&#34; &#34;sleep&#34; &#34;100&#34;)&#10;&#9;&#8658; #&#60;process my-process&#62;)&#10;(start-process &#34;my-process&#34; &#34;foo&#34; &#34;ls&#34; &#34;-l&#34; &#34;/bin&#34;&#10;&#9;&#8658; #&#60;process my-process&#60;1&#62;&#62;</span><br></pre></td></tr></table></figure>
+<p>那么可以用它去启动mplayer<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; 播放当前列表的第几首</span></span><br><span class="line"><span class="list">(<span class="keyword">defun</span> play-with-index<span class="list">(<span class="keyword">index</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span> <span class="string">"nIndex:"</span>)</span> <span class="comment">;; M-x 可以调用该函数, 并且可以传入一个整型</span></span><br><span class="line">  <span class="list">(<span class="keyword">kill-player</span>)</span>  <span class="comment">;; 关闭之前播放的音乐</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> current-index index)</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> mp3-url <span class="list">(<span class="keyword">get-mp3-url</span> index)</span>)</span> <span class="comment">;; 拿到播放地址 返回类似 http://xxx.xxx.xxx/xxx/xxx/xxx.mp3</span></span><br><span class="line">  <span class="list">(<span class="keyword">message</span> mp3-url)</span> <span class="comment">;; minibuf 通知地址</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> player-thread <span class="list">(<span class="keyword">start-process</span> <span class="string">"albin-music-proc"</span> <span class="literal">nil</span> albin-music-player mp3-url)</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">set-process-sentinel</span> player-thread <span class="quoted">'after-song</span>)</span> <span class="comment">;; 设置状态监听</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> play-status <span class="string">"playing"</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">render</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="u76D1_u542Cmplayer_u7684_u72B6_u6001"><a href="#u76D1_u542Cmplayer_u7684_u72B6_u6001" class="headerlink" title="监听mplayer的状态"></a>监听mplayer的状态</h3><p>elisp的函数命名真的是很好玩,不像我们现在的风格,比如set-process-sentinel,翻译过来应该是设置进程哨兵.用一个哨兵去监听这个进程.上面提到的after-song<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> after-song<span class="list">(<span class="keyword">player</span> status)</span></span><br><span class="line">  <span class="list">(<span class="keyword">when</span> <span class="list">(<span class="keyword">string-match</span>  <span class="string">"\\(finished\\|Exiting\\)"</span> status)</span></span><br><span class="line">    <span class="list">(<span class="keyword">next-song</span>)</span>)</span>)</span> <span class="comment">;; 播放下一首歌</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="u64AD_u653E_5C_u6682_u505C_5C_u4E0A_u4E0B_u9996"><a href="#u64AD_u653E_5C_u6682_u505C_5C_u4E0A_u4E0B_u9996" class="headerlink" title="播放\暂停\上下首"></a>播放\暂停\上下首</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> next-song <span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">&gt;=</span> current-index <span class="list">(<span class="keyword">-</span> <span class="list">(<span class="keyword">length</span> current-playlist)</span> <span class="number">1</span>)</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">play-with-index</span> <span class="number">0</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">play-with-index</span> <span class="list">(<span class="keyword">+</span> current-index <span class="number">1</span>)</span>)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">defun</span> prev-song<span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">&lt;</span> current-index <span class="number">1</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">play-with-index</span> <span class="list">(<span class="keyword">-</span> <span class="list">(<span class="keyword">length</span> current-playlist)</span> <span class="number">1</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">play-with-index</span> <span class="list">(<span class="keyword">-</span> current-index <span class="number">1</span>)</span>)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">defun</span> play-or-pause<span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">string-match</span> play-status <span class="string">"playing"</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">progn</span></span><br><span class="line">	<span class="list">(<span class="keyword">setq</span> play-status <span class="string">"pause"</span>)</span></span><br><span class="line">	<span class="list">(<span class="keyword">process-send-string</span> player-thread <span class="string">"pause\n"</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">progn</span></span><br><span class="line">      <span class="list">(<span class="keyword">setq</span> play-status <span class="string">"playing"</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">process-send-string</span> player-thread <span class="string">"play\n"</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<h1 id="u7F51_u6613_u4E91_u97F3_u4E50__u57FA_u7840API"><a href="#u7F51_u6613_u4E91_u97F3_u4E50__u57FA_u7840API" class="headerlink" title="网易云音乐 基础API"></a>网易云音乐 基础API</h1><p>以下是这次我要用到的一些基础api,登陆暂用不上.我是直接在每条request的header中写了cookie,这个cookie从web上,或者客户端里都能拿到的,最简单的是charles或者chrome的截包工具抓取一下就可以.<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defconst</span> batch-url <span class="string">"http://music.163.com/batch?%2Fapi%2Fdiscovery%2Fhotspot=%7B%22limit%22%3A12%7D"</span> <span class="string">"批量api地址"</span>)</span> <span class="comment">;;获取歌单</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> login-url <span class="string">"http://music.163.com/api/login/token/refresh"</span> <span class="string">"登陆地址"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> playlist-detail <span class="string">"http://music.163.com/api/playlist/detail?id=%d&amp;updateTime=-1"</span> <span class="string">"歌单详情"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> serarch-songs <span class="string">"http://music.163.com/api/search/pc"</span> <span class="string">"查找歌曲"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> song-detail <span class="string">"http://music.163.com/api/song/detail/"</span> <span class="string">"歌曲详情"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> my-playlist <span class="string">"http://music.163.com/api/user/playlist/?offset=%d&amp;limit=6&amp;uid=28825388"</span> <span class="string">"我的收藏"</span>)</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> visit-163<span class="list">(<span class="keyword">url</span> <span class="keyword">&amp;optional</span> method callback callback-args)</span></span><br><span class="line">  <span class="list">(<span class="keyword">print</span> url)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> method</span><br><span class="line">      <span class="list">(<span class="keyword">setq</span> url-request-method method)</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> url-request-method <span class="string">"GET"</span>)</span>)</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> url-cookie-untrusted-urls <span class="quoted">'(<span class="string">".*"</span>)</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> url-request-extra-headers</span><br><span class="line">	<span class="quoted">'(</span><br><span class="line">	  (<span class="string">"Host"</span> . <span class="string">"music.163.com"</span>)</span><br><span class="line">	  (<span class="string">"Content-Type"</span> . <span class="string">"application/x-www-form-urlencoded"</span>)</span><br><span class="line">	  (<span class="string">"Connection"</span> . <span class="string">"keep-alive"</span>)</span><br><span class="line">	  (<span class="string">"Cookie"</span>.<span class="string">"xxxxxxx"</span>) ;; 截取一下就ok</span><br><span class="line">	  (<span class="string">"Accept"</span> . <span class="string">"*/*"</span>)</span><br><span class="line">	  (<span class="string">"User-Agent"</span> . <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.76.4 (KHTML, like Gecko) Version/7.0.4 Safari/537.76.4"</span>)</span><br><span class="line">	  (<span class="string">"Referer"</span> . <span class="string">"http://music.163.com/"</span>)</span><br><span class="line">	  (<span class="string">"Accept-Language"</span> . <span class="string">"en-us"</span>)</span><br><span class="line">	  )</span> )</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> callback</span><br><span class="line">      <span class="list">(<span class="keyword">url-retrieve</span> url callback callback-args)</span></span><br><span class="line">    <span class="list">(<span class="keyword">url-retrieve-synchronously</span> url)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p> 这些接口返回的数据全是json格式,我们可以用el-get-install json来安装json包<br> <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">require</span> <span class="quoted">'json_</span></span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> json-loads <span class="list">(<span class="keyword">buffer</span>)</span> </span><br><span class="line"> <span class="list">(<span class="keyword">setq</span> buffer-file-coding-system <span class="quoted">'no-conversion</span>)</span> </span><br><span class="line"> <span class="list">(<span class="keyword">with-current-buffer</span> buffer</span><br><span class="line">   <span class="list">(<span class="keyword">goto-char</span> <span class="list">(<span class="keyword">point-min</span>)</span>)</span> </span><br><span class="line">   <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">not</span> <span class="list">(<span class="keyword">search-forward</span> <span class="string">"&#123;"</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">message</span> <span class="string">"好像不是json数据"</span>)</span> <span class="comment">;; 去掉header,url-retrieve会把header信息也写进buffer中</span></span><br><span class="line">     <span class="list">(<span class="keyword">setq</span> json-start <span class="list">(<span class="keyword">line-beginning-position</span>)</span>)</span></span><br><span class="line">     <span class="list">(<span class="keyword">setq</span> json-end <span class="list">(<span class="keyword">line-end-position</span>)</span>)</span></span><br><span class="line">     <span class="list">(<span class="keyword">json-read-from-string</span> <span class="list">(<span class="keyword">decode-coding-string</span> <span class="list">(<span class="keyword">buffer-substring-no-properties</span> json-start json-end)</span> <span class="quoted">'utf-8</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>比如我们要调取网易推荐的歌单<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> get-recommend <span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">let</span> <span class="list">(<span class="list">(<span class="keyword">data</span> <span class="list">(<span class="keyword">json-loads</span><span class="list">(<span class="keyword">visit-163</span> batch-url)</span>)</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">setq</span> code <span class="list">(<span class="keyword">cdr</span> <span class="list">(<span class="keyword">assoc</span> <span class="quoted">'code</span> data)</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">not</span> <span class="list">(<span class="keyword">=</span> code <span class="number">200</span>)</span>)</span> <span class="comment">;; 判断code</span></span><br><span class="line">	<span class="list">(<span class="keyword">message</span> <span class="string">"获取信息失败"</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">setq</span> recommend-playlist</span><br><span class="line">	  <span class="list">(<span class="keyword">cdr</span></span><br><span class="line">	  <span class="list">(<span class="keyword">assoc</span> <span class="quoted">'data</span></span><br><span class="line">		  <span class="list">(<span class="keyword">cdr</span> <span class="list">(<span class="keyword">assoc</span> <span class="quoted">'/api/discovery/hotspot</span> data)</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u663E_u793A"><a href="#u663E_u793A" class="headerlink" title="显示"></a>显示</h2><p>这个问题就仁者见仁了,比如我在写这一篇的时候觉得 &lt;&lt;我在人民广场吃着炸鸡&gt;&gt;挺好听的,按下键盘” C-c l “也就是 like-this-song.或者”C-c n”下一首.这些看习惯绑定.</p>
+<h1 id="u6548_u679C_u56FE"><a href="#u6548_u679C_u56FE" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/img/net-cm.png" alt="我在人民广场吃着炸鸡"><br><img src="/img/net-cm-good.png" alt="这首歌好听"></p>
+<h1 id="u53E6_u89C1"><a href="#u53E6_u89C1" class="headerlink" title="另见"></a>另见</h1><p><a href="http://albin.ga">albin.ga</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>#在Emacs播放音乐<br>emacs可以调用mplayer来播放音乐,已经有很多实现的方式来实现emacs下听音的mode.时下最热门的音乐软件莫过于网易云音乐,今天就来实现一个简单的网易云音乐Emacs版本.</p>
+<h2 id="u5DE5_u5177_u51C6]]>
+    </summary>
+    
+      <category term="elisp" scheme="http://albin.ga/tags/elisp/"/>
+    
+      <category term="emacs" scheme="http://albin.ga/tags/emacs/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[python抓取图片]]></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/python%E6%8A%93%E5%8F%96%E5%9B%BE%E7%89%87/"/>
+    <id>http://albin.ga/笔记/python抓取图片/</id>
+    <published>2015-06-10T09:56:00.000Z</published>
+    <updated>2016-01-12T03:38:39.023Z</updated>
+    <content type="html"><![CDATA[<h1 id="u5229_u7528Python_u6293_u53D6_u7F51_u9875_u4E0A_u7684_u56FE_u7247"><a href="#u5229_u7528Python_u6293_u53D6_u7F51_u9875_u4E0A_u7684_u56FE_u7247" class="headerlink" title="利用Python抓取网页上的图片"></a>利用Python抓取网页上的图片</h1>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="u5229_u7528Python_u6293_u53D6_u7F51_u9875_u4E0A_u7684_u56FE_u7247"><a href="#u5229_u7528Python_u6293_u53D6_u7F51_u9875_u4E0A_u7684_u]]>
+    </summary>
+    
+      <category term="python" scheme="http://albin.ga/tags/python/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[python 一行代码并发模糊图片]]></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/python_map%E7%94%A8%E6%B3%95/"/>
+    <id>http://albin.ga/笔记/python_map用法/</id>
+    <published>2015-06-10T08:40:21.000Z</published>
+    <updated>2016-01-12T03:38:39.023Z</updated>
+    <content type="html"><![CDATA[<h2 id="u4E4B_u524D_u4E00_u76F4_u7528_u7684Thread_2C_u6216_u8005Threading_2C_u6216_u8005_u5199_u6210woker_u6A21_u5F0F_2C_u4F46_u6211_u7528python_u7EDD_u5927_u591A_u6570_u60C5_u51B5_u4E0B_u8FD8_u662F_u505A_u4E00_u4E9B_u5C0F_u5DE5_u5177_2C_u4E3A_u5F97_u5C31_u662F_u5FEB_u6377_u65B9_u4FBF_2C_u540E_u6765_u53D1_u73B0_u7528multiprocessing_2C_u7528map_u53BB_u6620_u5C04_u53C2_u6570_u4E0E_u65B9_u6CD5_u771F_u662F_u592A_u65B9_u4FBF_u4E86"><a href="#u4E4B_u524D_u4E00_u76F4_u7528_u7684Thread_2C_u6216_u8005Threading_2C_u6216_u8005_u5199_u6210woker_u6A21_u5F0F_2C_u4F46_u6211_u7528python_u7EDD_u5927_u591A_u6570_u60C5_u51B5_u4E0B_u8FD8_u662F_u505A_u4E00_u4E9B_u5C0F_u5DE5_u5177_2C_u4E3A_u5F97_u5C31_u662F_u5FEB_u6377_u65B9_u4FBF_2C_u540E_u6765_u53D1_u73B0_u7528multiprocessing_2C_u7528map_u53BB_u6620_u5C04_u53C2_u6570_u4E0E_u65B9_u6CD5_u771F_u662F_u592A_u65B9_u4FBF_u4E86" class="headerlink" title="之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了."></a>之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了.</h2><h2 id="u4E0B_u9762_u662F_u4E00_u5C0F_u6BB5_u7528PIL_u6A21_u7CCA_u591A_u5F20_u56FE_u7247"><a href="#u4E0B_u9762_u662F_u4E00_u5C0F_u6BB5_u7528PIL_u6A21_u7CCA_u591A_u5F20_u56FE_u7247" class="headerlink" title="下面是一小段用PIL模糊多张图片"></a>下面是一小段用PIL模糊多张图片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># file name : multpool.py</span></span><br><span class="line"><span class="comment"># author : albin</span></span><br><span class="line"><span class="comment"># created at : Wed Jun 10 11:20:53 2015</span></span><br><span class="line"><span class="comment"># Copyright (c) iuixi.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, sys, time</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool </span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageFilter</span><br><span class="line"></span><br><span class="line">SAVE_DIRECTORY = <span class="string">'blur'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_image_paths</span><span class="params">(folder)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (os.path.join(folder, f) </span><br><span class="line">            <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(folder) </span><br><span class="line">            <span class="keyword">if</span> <span class="string">'jpg'</span> <span class="keyword">in</span> f)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">blur_image</span><span class="params">(filename)</span>:</span> </span><br><span class="line">    im = Image.open(filename)</span><br><span class="line">    im = im.filter(ImageFilter.BLUR)</span><br><span class="line">    im = im.filter(ImageFilter.MinFilter(<span class="number">3</span>))</span><br><span class="line">    base, fname = os.path.split(filename) </span><br><span class="line">    save_path = os.path.join(base, SAVE_DIRECTORY, fname)</span><br><span class="line">    im.save(save_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当线程处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">single_blur</span><span class="params">(images)</span>:</span></span><br><span class="line">    <span class="keyword">for</span>  image <span class="keyword">in</span> images:</span><br><span class="line">        blur_image(image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用map处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mult_blur</span><span class="params">(images)</span>:</span></span><br><span class="line">    pool = Pool()      </span><br><span class="line">    pool.map(blur_image, images)</span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    folder = os.path.abspath(<span class="string">'imgs'</span>)</span><br><span class="line">    path = os.path.join(folder, SAVE_DIRECTORY)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        os.makedirs(path)</span><br><span class="line">    images = get_image_paths(folder)</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    <span class="comment">#single_blur(images)</span></span><br><span class="line">    mult_blur(images)</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'blur images in &#123;&#125;s'</span>.format(time.time() - start_time)</span><br></pre></td></tr></table></figure>
+<p>o</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="u4E4B_u524D_u4E00_u76F4_u7528_u7684Thread_2C_u6216_u8005Threading_2C_u6216_u8005_u5199_u6210woker_u6A21_u5F0F_2C_u4F46_u6211_u7528py]]>
+    </summary>
+    
+      <category term="python" scheme="http://albin.ga/tags/python/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[PhoneGap使用帮助]]></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/phonegamp_manaul/"/>
+    <id>http://albin.ga/笔记/phonegamp_manaul/</id>
+    <published>2015-05-06T08:40:21.000Z</published>
+    <updated>2016-01-12T03:38:39.023Z</updated>
+    <content type="html"><![CDATA[<!--
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+-->
+<h1 id="Cordova_Hooks"><a href="#Cordova_Hooks" class="headerlink" title="Cordova Hooks"></a>Cordova Hooks</h1><p>Cordova Hooks represent special scripts which could be added by application and plugin developers or even by your own build system  to customize cordova commands. Hook scripts could be defined by adding them to the special predefined folder (<code>/hooks</code>) or via configuration files (<code>config.xml</code> and <code>plugin.xml</code>) and run serially in the following order:</p>
+<ul>
+<li>Application hooks from <code>/hooks</code>;</li>
+<li>Application hooks from <code>config.xml</code>;</li>
+<li>Plugin hooks from <code>plugins/.../plugin.xml</code>.</li>
+</ul>
+<p><strong>Remember</strong>: Make your scripts executable.</p>
+<p><strong>Note</strong>: <code>.cordova/hooks</code> directory is also supported for backward compatibility, but we don’t recommend using it as it is deprecated.</p>
+<h2 id="Supported_hook_types"><a href="#Supported_hook_types" class="headerlink" title="Supported hook types"></a>Supported hook types</h2><p>The following hook types are supported:</p>
+<pre><code>after_build/
+after_compile/
+after_docs/
+after_emulate/
+after_platform_add/
+after_platform_rm/
+after_platform_ls/
+after_plugin_add/
+after_plugin_ls/
+after_plugin_rm/
+after_plugin_search/
+after_plugin_install/   &lt;-- Plugin hooks defined in plugin.xml are executed exclusively for a plugin being installed
+after_prepare/
+after_run/
+after_serve/
+before_build/
+before_compile/
+before_docs/
+before_emulate/
+before_platform_add/
+before_platform_rm/
+before_platform_ls/
+before_plugin_add/
+before_plugin_ls/
+before_plugin_rm/
+before_plugin_search/
+before_plugin_install/   &lt;-- Plugin hooks defined in plugin.xml are executed exclusively for a plugin being installed
+before_plugin_uninstall/   &lt;-- Plugin hooks defined in plugin.xml are executed exclusively for a plugin being uninstalled
+before_prepare/
+before_run/
+before_serve/
+pre_package/ &lt;-- Windows 8 and Windows Phone only.
+</code></pre><h2 id="Ways_to_define_hooks"><a href="#Ways_to_define_hooks" class="headerlink" title="Ways to define hooks"></a>Ways to define hooks</h2><h3 id="Via__u2018/hooks_u2019_directory"><a href="#Via__u2018/hooks_u2019_directory" class="headerlink" title="Via ‘/hooks’ directory"></a>Via ‘/hooks’ directory</h3><p>To execute custom action when corresponding hook type is fired, use hook type as a name for a subfolder inside ‘hooks’ directory and place you script file here, for example:</p>
+<pre><code># script file will be automatically executed after each build
+hooks/after_build/after_build_custom_action.js
+</code></pre><h3 id="Config-xml"><a href="#Config-xml" class="headerlink" title="Config.xml"></a>Config.xml</h3><p>Hooks can be defined in project’s <code>config.xml</code> using <code>&lt;hook&gt;</code> elements, for example:</p>
+<pre><code>&lt;hook type=&quot;before_build&quot; src=&quot;scripts/appBeforeBuild.bat&quot; /&gt;
+&lt;hook type=&quot;before_build&quot; src=&quot;scripts/appBeforeBuild.js&quot; /&gt;
+&lt;hook type=&quot;before_plugin_install&quot; src=&quot;scripts/appBeforePluginInstall.js&quot; /&gt;
+
+&lt;platform name=&quot;wp8&quot;&gt;
+    &lt;hook type=&quot;before_build&quot; src=&quot;scripts/wp8/appWP8BeforeBuild.bat&quot; /&gt;
+    &lt;hook type=&quot;before_build&quot; src=&quot;scripts/wp8/appWP8BeforeBuild.js&quot; /&gt;
+    &lt;hook type=&quot;before_plugin_install&quot; src=&quot;scripts/wp8/appWP8BeforePluginInstall.js&quot; /&gt;
+    ...
+&lt;/platform&gt;
+
+&lt;platform name=&quot;windows8&quot;&gt;
+    &lt;hook type=&quot;before_build&quot; src=&quot;scripts/windows8/appWin8BeforeBuild.bat&quot; /&gt;
+    &lt;hook type=&quot;before_build&quot; src=&quot;scripts/windows8/appWin8BeforeBuild.js&quot; /&gt;
+    &lt;hook type=&quot;before_plugin_install&quot; src=&quot;scripts/windows8/appWin8BeforePluginInstall.js&quot; /&gt;
+    ...
+&lt;/platform&gt;
+</code></pre><h3 id="Plugin_hooks__28plugin-xml_29"><a href="#Plugin_hooks__28plugin-xml_29" class="headerlink" title="Plugin hooks (plugin.xml)"></a>Plugin hooks (plugin.xml)</h3><p>As a plugin developer you can define hook scripts using <code>&lt;hook&gt;</code> elements in a <code>plugin.xml</code> like that:</p>
+<pre><code>&lt;hook type=&quot;before_plugin_install&quot; src=&quot;scripts/beforeInstall.js&quot; /&gt;
+&lt;hook type=&quot;after_build&quot; src=&quot;scripts/afterBuild.js&quot; /&gt;
+
+&lt;platform name=&quot;wp8&quot;&gt;
+    &lt;hook type=&quot;before_plugin_install&quot; src=&quot;scripts/wp8BeforeInstall.js&quot; /&gt;
+    &lt;hook type=&quot;before_build&quot; src=&quot;scripts/wp8BeforeBuild.js&quot; /&gt;
+    ...
+&lt;/platform&gt;
+</code></pre><p><code>before_plugin_install</code>, <code>after_plugin_install</code>, <code>before_plugin_uninstall</code> plugin hooks will be fired exclusively for the plugin being installed/uninstalled.</p>
+<h2 id="Script_Interface"><a href="#Script_Interface" class="headerlink" title="Script Interface"></a>Script Interface</h2><h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h3><p>If you are writing hooks in Javascript you should use the following module definition:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>You can make your scipts async using Q:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Q = context.requireCordovaModule(<span class="string">'q'</span>);</span><br><span class="line">    <span class="keyword">var</span> deferral = <span class="keyword">new</span> Q.defer();</span><br><span class="line"></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	<span class="built_in">console</span>.log(<span class="string">'hook.js&gt;&gt; end'</span>);</span><br><span class="line">		deferral.resolve();</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> deferral.promise;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>context</code> object contains hook type, executed script full path, hook options, command-line arguments passed to Cordova and top-level “cordova” object:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	"hook": "before_plugin_install",</span><br><span class="line">	"scriptLocation": "c:\\script\\full\\path\\appBeforePluginInstall.js",</span><br><span class="line">	"cmdLine": "The\\exact\\command\\cordova\\run\\with arguments",</span><br><span class="line">	"opts": &#123;</span><br><span class="line">		"projectRoot":"C:\\path\\to\\the\\project",</span><br><span class="line">		"cordova": &#123;</span><br><span class="line">			"platforms": ["wp8"],</span><br><span class="line">			"plugins": ["com.plugin.withhooks"],</span><br><span class="line">			"version": "0.21.7-dev"</span><br><span class="line">		&#125;,</span><br><span class="line">		"plugin": &#123;</span><br><span class="line">			"id": "com.plugin.withhooks",</span><br><span class="line">			"pluginInfo": &#123;</span><br><span class="line">				...</span><br><span class="line">			&#125;,</span><br><span class="line">			"platform": "wp8",</span><br><span class="line">			"dir": "C:\\path\\to\\the\\project\\plugins\\com.plugin.withhooks"</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	"cordova": &#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>context.opts.plugin</code> object will only be passed to plugin hooks scripts.</p>
+<p>You can also require additional Cordova modules in your script using <code>context.requireCordovaModule</code> in the following way:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Q = context.requireCordovaModule(<span class="string">'q'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>Note</strong>:  new module loader script interface is used for the <code>.js</code> files defined via <code>config.xml</code> or <code>plugin.xml</code> only.<br>For compatibility reasons hook files specified via <code>/hooks</code> folders are run via Node child_process spawn, see ‘Non-javascript’ section below.</p>
+<h3 id="Non-javascript"><a href="#Non-javascript" class="headerlink" title="Non-javascript"></a>Non-javascript</h3><p>Non-javascript scripts are run via Node child_process spawn from the project’s root directory and have the root directory passes as the first argument. All other options are passed to the script using environment variables:</p>
+<ul>
+<li>CORDOVA_VERSION - The version of the Cordova-CLI.</li>
+<li>CORDOVA_PLATFORMS - Comma separated list of platforms that the command applies to (e.g.: android, ios).</li>
+<li>CORDOVA_PLUGINS - Comma separated list of plugin IDs that the command applies to (e.g.: org.apache.cordova.file, org.apache.cordova.file-transfer)</li>
+<li>CORDOVA_HOOK - Path to the hook that is being executed.</li>
+<li>CORDOVA_CMDLINE - The exact command-line arguments passed to cordova (e.g.: cordova run ios –emulate)</li>
+</ul>
+<p>If a script returns a non-zero exit code, then the parent cordova command will be aborted.</p>
+<h2 id="Writing_hooks"><a href="#Writing_hooks" class="headerlink" title="Writing hooks"></a>Writing hooks</h2><p>We highly recommend writing your hooks using Node.js so that they are<br>cross-platform. Some good examples are shown here:</p>
+<p><a href="http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs/" target="_blank" rel="external">http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs/</a></p>
+<p>Also, note that even if you are working on Windows, and in case your hook scripts aren’t bat files (which is recommended, if you want your scripts to work in non-Windows operating systems) Cordova CLI will expect a shebang line as the first line for it to know the interpreter it needs to use to launch the script. The shebang line should match the following example:</p>
+<pre><code>#!/usr/bin/env [name_of_interpreter_executable]
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<!--
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distrib]]>
+    </summary>
+    
+      <category term="app" scheme="http://albin.ga/tags/app/"/>
+    
+      <category term="html5" scheme="http://albin.ga/tags/html5/"/>
+    
+      <category term="phonegap" scheme="http://albin.ga/tags/phonegap/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[git 自动部署]]></title>
+    <link href="http://albin.ga/%E7%AC%94%E8%AE%B0/git-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"/>
+    <id>http://albin.ga/笔记/git-自动部署/</id>
+    <published>2015-05-06T08:40:21.000Z</published>
+    <updated>2016-01-12T03:38:39.023Z</updated>
+    <content type="html"><![CDATA[<h1 id="GIT_HOOKS"><a href="#GIT_HOOKS" class="headerlink" title="GIT HOOKS"></a><a href="http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks" target="_blank" rel="external">GIT HOOKS</a></h1><p>钩子(hooks)是一些在”$GIT-DIR/hooks”目录的脚本, 在被特定的事件(certain points)触发后被调用。当”git init”命令被 调用后, 一些非常有用的示例钩子文件(hooks)被拷到新仓库的hooks目录中; 但是在默认情况下这些钩子(hooks)是不 生效的。 把这些钩子文件(hooks)的”.sample”文件名后缀去掉就可以使它们生效了。</p>
+<h2 id="applypatch-msg"><a href="#applypatch-msg" class="headerlink" title="applypatch-msg"></a>applypatch-msg</h2><p>当’git-am’命令执行时,这个钩子就被调用。它只有一个参数:就是存有提交消息(commit log message)的文件的名 字。如果钩子的执行结果是非零,那么补丁(patch)就不会被应用(apply)。<br>这个钩子用于在其它地方编辑提交消息,并且可以把这些消息规范成项目的标准格式(如果项目些类的标准的话)。 它也可以在分析(inspect)完消息文件后拒绝此次提交(commit)。在默认情况下,当 applypatch-msg 钩子被启用 时。。。。</p>
+<h2 id="pre-applypatch"><a href="#pre-applypatch" class="headerlink" title="pre-applypatch"></a>pre-applypatch</h2><p>当’git-am’命令执行时,这个钩子就被调用。它没有参数,并且是在一个补丁(patch)被应用后还未提交(commit)前被 调用。如果钩子的执行结果是非零,那么刚才应用的补丁(patch)就不会被提交。<br>它用于检查当前的工作树,当提交的补丁不能通过特定的测试就拒绝将它提交(commit)进仓库。</p>
+<h2 id="post-applypatch"><a href="#post-applypatch" class="headerlink" title="post-applypatch"></a>post-applypatch</h2><p>当’git-am’命令执行时,这个钩子就被调用。它没有参数,并且是在一个补丁(patch)被应用且在完成提交(commit)情<br>况下被调用。<br>这个钩子的主要用途是通知提示(notification),它并不会影响’git-am’的执行和输出。</p>
+<h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><p>这个钩子被 ‘git-commit’ 命令调用, 而且可以通过在命令中添加--no-verify 参数来跳过。这个钩子没有参数,在得<br>到提交消息和开始提交(commit)前被调用。如果钩子执行结果是非零,那么 ‘git-commit’ 命令就会中止执行。 译注:此钩子可以用来在提交前检查代码错误(运行类似lint的程序)。 当默认的’pre-commit’钩子开启时,如果它发现文件尾部有空白行,那么就会中止此次提交。 译注:新版的默认钩子和这里所说有所有不同。<br>下面是一个运行 Rspec 测试的 Ruby 脚本,如果没有通过这个测试,那么不允许提交(commit)。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">html_path = <span class="string">"spec_results.html"</span></span><br><span class="line"><span class="string">`spec -f h:<span class="subst">#&#123;html_path&#125;</span> -f p spec`</span> <span class="comment"># run the spec. send progress to screen. save html results to html_path</span></span><br><span class="line"><span class="comment"># find out how many errors were found</span></span><br><span class="line">html = open(html_path).read</span><br><span class="line">examples = html.match(<span class="regexp">/(\d+) examples/</span>)[<span class="number">0</span>].to_i <span class="keyword">rescue</span> <span class="number">0</span></span><br><span class="line">failures = html.match(<span class="regexp">/(\d+) failures/</span>)[<span class="number">0</span>].to_i <span class="keyword">rescue</span> <span class="number">0</span></span><br><span class="line">pending = html.match(<span class="regexp">/(\d+) pending/</span>)[<span class="number">0</span>].to_i <span class="keyword">rescue</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> failures.zero?</span><br><span class="line">	puts <span class="string">"0 failures! <span class="subst">#&#123;examples&#125;</span> run, <span class="subst">#&#123;pending&#125;</span> pending"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	puts <span class="string">"\aDID NOT COMMIT YOUR FILES!"</span></span><br><span class="line">	puts <span class="string">"View spec results at <span class="subst">#&#123;<span class="constant">File</span>.expand_path(html_path)&#125;</span>"</span></span><br><span class="line">	puts</span><br><span class="line">	puts <span class="string">"<span class="subst">#&#123;failures&#125;</span> failures! <span class="subst">#&#123;examples&#125;</span> run, <span class="subst">#&#123;pending&#125;</span> pending"</span></span><br><span class="line">	exit <span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="prepare-commit-msg"><a href="#prepare-commit-msg" class="headerlink" title="prepare-commit-msg"></a>prepare-commit-msg</h2><p>当’git-commit’命令执行时:在编辑器(editor)启动前,默认提交消息准备好后,这个钩子就被调用。<br>它有三个参数。第一个是提交消息文件的名字。第二个是提交消息的来源,它可以是:().<br>如果钩子的执行結果是非零的话,那么’git-commit’命令就会被中止执行。</p>
+<h2 id="commit-msg"><a href="#commit-msg" class="headerlink" title="commit-msg"></a>commit-msg</h2><p>当’git-commit’命令执行时，这个钩子被调用；也可以在命令中添加--no-verify参数来跳过。这个钩子有一个参数：就是被选定的提交消息文件的名字。如这个钩子的执行結果是非零，那么’git-commit’命令就会中止执行。</p>
+<p>这个钩子的是为提交消息更适当，可以用于规范提交消息使之符合项目的标准(如果有的话)；如果它检查完提交消息后，发现内容不符合某些标准，它也可以拒绝此次提交(commit)。</p>
+<p>默认的’commit-msg’钩子启用后，它后检查里面是否有重复的签名结束线(Signed-off-by lines)，如果找到它就是中止此次提交(commit)操作。</p>
+<h2 id="post-commit"><a href="#post-commit" class="headerlink" title="post-commit"></a>post-commit</h2><p>当’git-commit’命令执行时，这个钩子就被调用。它没有参数，并且是在一个提交(commit)完成时被调用。</p>
+<p>这个钩子的主要用途是通知提示(notification)，它并不会影响’git-commit’的执行和输出。</p>
+<h2 id="pre-rebase"><a href="#pre-rebase" class="headerlink" title="pre-rebase"></a>pre-rebase</h2><p>当’git-base’命令执行时，这个钩子就被调用；主要目的是阻止那不应被rebase的分支被rebase(例如，一个已经发布的分支提交就不应被rebase)。</p>
+<h2 id="post-checkout"><a href="#post-checkout" class="headerlink" title="post-checkout"></a>post-checkout</h2><p>当’git-checkout’命令更新完整个工作树(worktree)后，这个钩子就会被调用。这个钩子有三个参数：前一个HEAD的 ref，新HEAD的 ref，判断一个签出是分支签出还是文件签出的标识符(分支签出＝1，文件签出＝0)。这个钩子不会影响’git-checkout’命令的输出。</p>
+<p>这个钩子可以用于检查仓库的一致性，自动显示签出前后的代码的区别，也可以用于设置目录的元数据属性。</p>
+<h2 id="post-merge"><a href="#post-merge" class="headerlink" title="post-merge"></a>post-merge</h2><p>This hook is invoked by ‘git-merge’, which happens when a ‘git-pull’ is done on a local repository. The hook takes a single parameter, a status flag specifying whether or not the merge being done was a squash merge. This hook cannot affect the outcome of ‘git-merge’ and is not executed, if the merge failed due to conflicts.</p>
+<p>它有一个参数：</p>
+<p>This hook can be used in conjunction with a corresponding pre-commit hook to save and restore any form of metadata associated with the working tree (eg: permissions/ownership, ACLS, etc). See contrib/hooks/setgitperms.perl for an example of how to do this.</p>
+<h2 id="pre-receive"><a href="#pre-receive" class="headerlink" title="pre-receive"></a>pre-receive</h2><p>当用户在本地仓库执行’git-push’命令时，服务器上运端仓库就会对应执行’git-receive-pack’命令，而’git-receive-pack’命令会调用 pre-receive 钩子。在开始更新远程仓库上的ref之前，这个钩子被调用。钩子的执行结果(exit status)决定此次更新能否成功。</p>
+<p>每执行一个接收(receive)操作都会调用一次这个钩子。它没有命令行参数，但是它会从标准输入(standard input)读取需要更新的ref，格式如下：</p>
+<p>SP SP LF</p>
+<p>SP是空格，LF是回车。</p>
+<p><old-value>是保存在ref里的老对象的名字，<new-value>是保存在ref里的新对象的名字，<ref-name>就是此次要更新的ref的全名。如果是创建一个新的ref，那么<old-value>就是由40个0组成的字符串表示。</old-value></ref-name></new-value></old-value></p>
+<p>如果钩子的执行结果是非零，那么没有引用(ref)会被更新。如果执行结果为零，更新操作还可以被后面的 &lt;<update,'update'>&gt; 钩子所阻止。</update,'update'></p>
+<p>钩子(hook)的标准输出和标准错误输出(stdout &amp; stderr)都会通’git-send-pack’转发给客户端(other end)，你可以把这个信息回显(echo)给用户。</p>
+<p>如果你用ruby,那么可以像下面的代码一样得到它们的参数。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rev_old, rev_new, ref = <span class="constant">STDIN</span>.read.split(<span class="string">" "</span>)</span><br></pre></td></tr></table></figure></p>
+<p>在bash脚本中，下面代码也可能得到参数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="comment"># &lt;oldrev&gt; &lt;newrev&gt; &lt;refname&gt;</span></span><br><span class="line"><span class="comment"># update a blame tree</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">read</span> oldrev newrev ref</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"STARTING [<span class="variable">$oldrev</span> <span class="variable">$newrev</span> <span class="variable">$ref</span>]"</span></span><br><span class="line">    <span class="keyword">for</span> path <span class="keyword">in</span> `git diff-tree -r <span class="variable">$oldrev</span>..<span class="variable">$newrev</span> | awk <span class="string">'&#123;print $6&#125;'</span>`</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">"git update-ref refs/blametree/<span class="variable">$ref</span>/<span class="variable">$path</span> <span class="variable">$newrev</span>"</span></span><br><span class="line">      `git update-ref refs/blametree/<span class="variable">$ref</span>/<span class="variable">$path</span> <span class="variable">$newrev</span>`</span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><p>当用户在本地仓库执行’git-push’命令时，服务器上运端仓库就会对应执行’git-receive-pack’，而’git-receive-pack’会调用 update 钩子。在更新远程仓库上的ref之前，这个钩子被调用。钩子的执行结果(exit status)决定此次update能否成功。</p>
+<p>每更新一个引用(ref)，钩子就会被调用一次，并且使用三个参数:</p>
+<p>如果 update hook 的执行结果是零，那么引用(ref)就会被更新。如果执行结果是非零，那么’git-receive-pack’就不会更新这个引用(ref)。</p>
+<p>这个钩子也可以用于防止强制更新某些 refs，确保old object是new object的父对象。这样也就是强制执行”fast forward only”策略。</p>
+<p>它也可以用于跟踪(log)更新详情。但是由于它不知道每次更新的ref全体集合，尽管可以傻傻的每个ref更新就发送email；但是&lt;<post-receive,'post-receive'>&gt;钩子更适合这种情况。</post-receive,'post-receive'></p>
+<p>在邮件列表(mailing list)上讲了另外一种用法：用这个 update hook 实现细粒度(finer grained)权限控制。</p>
+<p>钩子(hook)的标准输出和标准错误输出(stdout &amp; stderr)都会通’git-send-pack’转发给客户端(other end)，你可以把这个信息回显(echo)给用户。</p>
+<p>当默认的 update hook 被启用，且hooks.allowunannotated选项被打开时，那么没有注释(unannotated)的标签就不能被推送到服务器上。</p>
+<h2 id="post-receive"><a href="#post-receive" class="headerlink" title="post-receive"></a>post-receive</h2><p>当用户在本地仓库执行’git-push’命令时，服务器上运端仓库就会对应执行’git-receive-pack’命令；在所有远程仓库的引用(ref)都更新后，这个钩子就会被’git-receive-pack’调用。</p>
+<p>服务器端仓库每次执行接收(receive)操作时，这个钩子就会被调用。此钩子执行不带任何命令行参数，但是和&lt;<pre-receive,'pre-receive'>&gt;钩子一样从标准输入(standard input)读取信息，并且读取的信息内容也是一样的。</pre-receive,'pre-receive'></p>
+<p>这个钩子不会影响’git-receive-pack’命令的输出，因为它是在命令执行完后被调用的。</p>
+<p>这个钩子可以取代 &lt;<post-update,'post-update'>&gt;钩子；因为后者只能得到需要更新的ref的名字，而没有更新前后的对象的名字。</post-update,'post-update'></p>
+<p>钩子(hook)的标准输出和标准错误输出(stdout &amp; stderr)都会通’git-send-pack’转发给客户端(other end)，你可以把这个信息回显(echo)给用户。</p>
+<p>默认的’post-receive’的钩子是空的，但是在git distribution contrib/hooks 目录里有一个名为 post-receive-email 的示例脚本，实实了发送commit emails的功能。</p>
+<h2 id="post-update"><a href="#post-update" class="headerlink" title="post-update"></a>post-update</h2><p>当用户在本地仓库执行’git-push’命令时，服务器上运端仓库就会对应执行’git-receive-pack’。在所有远程仓库的引用(ref)都更新后，post-update 就会被调用。</p>
+<p>它的参数数目是可变的，每个参数代表实际被更新的 ref。</p>
+<p>这个钩子的主要用途是通知提示(notification)，它并不会影响’git-receive-pack’的输出。</p>
+<p>‘post-update’可以行诉我们哪些 heads 被更新了，但是它不知道head更新前后的值，所以这里不大适合记录更新详情。而&lt;<post-receive,'post-receive'>&gt;钩子可以得到ref(也可说是head)更新前后的值，如果你要记录更详情的话，可以考虑使用这个钩子。</post-receive,'post-receive'></p>
+<p>如果默认的’post-update’钩子启用的话，它们执行‘git-update-server-info’命令去更新一些dumb协议(如http)所需要的信息。如果你的git仓库是通http协议来访问，那么你就应该开启它。</p>
+<p>钩子(hook)的标准输出和标准错误输出(stdout &amp; stderr)都会通’git-send-pack’转发给客户端(other end)，你可以把这个信息回显(echo)给用户。</p>
+<h2 id="pre-auto-gc"><a href="#pre-auto-gc" class="headerlink" title="pre-auto-gc"></a>pre-auto-gc</h2><p>当调用’git-gc –auto’命令时，这个钩子(hook)就会被调用。它没有调用参数，如果钩子的执行結果是非零的话，那么’git-gc –auto’命令就会中止执行。</p>
+<h1 id="u81EA_u52A8_u90E8_u7F72web_u6216_u8005_u9875_u6E38"><a href="#u81EA_u52A8_u90E8_u7F72web_u6216_u8005_u9875_u6E38" class="headerlink" title="自动部署web或者页游"></a>自动部署web或者页游</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="comment">#判断是不是远端仓库</span></span><br><span class="line">IS_BARE=$(git rev-parse --is-bare-repository)</span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">"<span class="variable">$IS_BARE</span>"</span> ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> &gt;&amp;<span class="number">2</span> <span class="string">"fatal: post-receive: IS_NOT_BARE"</span></span><br><span class="line"><span class="built_in">exit</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line">DeployPath=<span class="string">"/root/hexo_space/blog/"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"==============================================="</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$DeployPath</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"deploying the test web"</span></span><br><span class="line"></span><br><span class="line">＃git stash</span><br><span class="line"><span class="comment">#git pull origin master</span></span><br><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line"></span><br><span class="line">time=`date`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"web server pull at webserver at time: <span class="variable">$time</span>."</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"================================================"</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="GIT_HOOKS"><a href="#GIT_HOOKS" class="headerlink" title="GIT HOOKS"></a><a href="http://git-scm.com/book/en/v2/Customizing-Git-Git-]]>
+    </summary>
+    
+      <category term="git" scheme="http://albin.ga/tags/git/"/>
+    
+      <category term="git-hook" scheme="http://albin.ga/tags/git-hook/"/>
+    
+      <category term="笔记" scheme="http://albin.ga/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>

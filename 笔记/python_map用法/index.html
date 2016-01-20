@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python 一行代码并发模糊图片 | Albin Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了.下面是一小段用PIL模糊多张图片1234567891011121314151617181920212223242526272829303132333435363738394041">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 一行代码并发模糊图片">
+<meta property="og:url" content="http://albin.ga/笔记/python_map用法/index.html">
+<meta property="og:site_name" content="Albin Note">
+<meta property="og:description" content="之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了.下面是一小段用PIL模糊多张图片1234567891011121314151617181920212223242526272829303132333435363738394041">
+<meta property="og:updated_time" content="2016-01-12T03:38:39.023Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 一行代码并发模糊图片">
+<meta name="twitter:description" content="之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了.下面是一小段用PIL模糊多张图片1234567891011121314151617181920212223242526272829303132333435363738394041">
+  
+    <link rel="alternative" href="/atom.xml" title="Albin Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favico.jpg">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/favico.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">albin</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">不务正业的现役程序猿</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/个人信息/简历/我的个人简历/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:albinyewen@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/albinyewen" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Facebook"><a class="Facebook" target="_blank" href="https://www.facebook.com/hialbin" title="Facebook"></a></li>
+                            
+                                <li id="Twitter"><a class="Twitter" target="_blank" href="http://twitter.com/zybyy" title="Twitter"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Lambda/" style="font-size: 10px;">Lambda</a> <a href="/tags/Unity3D/" style="font-size: 10px;">Unity3D</a> <a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/cocos2s-js/" style="font-size: 10px;">cocos2s-js</a> <a href="/tags/elisp/" style="font-size: 10px;">elisp</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-hook/" style="font-size: 10px;">git-hook</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/package-control/" style="font-size: 10px;">package-control</a> <a href="/tags/phonegap/" style="font-size: 10px;">phonegap</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/游戏/" style="font-size: 10px;">游戏</a> <a href="/tags/笔记/" style="font-size: 20px;">笔记</a> <a href="/tags/简历/" style="font-size: 10px;">简历</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">albin</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/favico.jpg" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">albin</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不务正业的现役程序猿</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/个人信息/简历/我的个人简历/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:albinyewen@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/albinyewen" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Facebook"><a class="Facebook" target="_blank" href="https://www.facebook.com/hialbin" title="Facebook"></a></li>
+                            
+                                <li id="Twitter"><a class="Twitter" target="_blank" href="http://twitter.com/zybyy" title="Twitter"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-python_map用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/笔记/python_map用法/" class="article-date">
+      <time datetime="2015-06-10T08:40:21.000Z" itemprop="datePublished">2015-06-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python 一行代码并发模糊图片
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+<div class="article-entry" itemprop="articleBody">
+  
+  	
+  	
+  	  <h2 id="u4E4B_u524D_u4E00_u76F4_u7528_u7684Thread_2C_u6216_u8005Threading_2C_u6216_u8005_u5199_u6210woker_u6A21_u5F0F_2C_u4F46_u6211_u7528python_u7EDD_u5927_u591A_u6570_u60C5_u51B5_u4E0B_u8FD8_u662F_u505A_u4E00_u4E9B_u5C0F_u5DE5_u5177_2C_u4E3A_u5F97_u5C31_u662F_u5FEB_u6377_u65B9_u4FBF_2C_u540E_u6765_u53D1_u73B0_u7528multiprocessing_2C_u7528map_u53BB_u6620_u5C04_u53C2_u6570_u4E0E_u65B9_u6CD5_u771F_u662F_u592A_u65B9_u4FBF_u4E86"><a href="#u4E4B_u524D_u4E00_u76F4_u7528_u7684Thread_2C_u6216_u8005Threading_2C_u6216_u8005_u5199_u6210woker_u6A21_u5F0F_2C_u4F46_u6211_u7528python_u7EDD_u5927_u591A_u6570_u60C5_u51B5_u4E0B_u8FD8_u662F_u505A_u4E00_u4E9B_u5C0F_u5DE5_u5177_2C_u4E3A_u5F97_u5C31_u662F_u5FEB_u6377_u65B9_u4FBF_2C_u540E_u6765_u53D1_u73B0_u7528multiprocessing_2C_u7528map_u53BB_u6620_u5C04_u53C2_u6570_u4E0E_u65B9_u6CD5_u771F_u662F_u592A_u65B9_u4FBF_u4E86" class="headerlink" title="之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了."></a>之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了.</h2><h2 id="u4E0B_u9762_u662F_u4E00_u5C0F_u6BB5_u7528PIL_u6A21_u7CCA_u591A_u5F20_u56FE_u7247"><a href="#u4E0B_u9762_u662F_u4E00_u5C0F_u6BB5_u7528PIL_u6A21_u7CCA_u591A_u5F20_u56FE_u7247" class="headerlink" title="下面是一小段用PIL模糊多张图片"></a>下面是一小段用PIL模糊多张图片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># file name : multpool.py</span></span><br><span class="line"><span class="comment"># author : albin</span></span><br><span class="line"><span class="comment"># created at : Wed Jun 10 11:20:53 2015</span></span><br><span class="line"><span class="comment"># Copyright (c) iuixi.com</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, sys, time</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool </span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageFilter</span><br><span class="line"></span><br><span class="line">SAVE_DIRECTORY = <span class="string">'blur'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_image_paths</span><span class="params">(folder)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (os.path.join(folder, f) </span><br><span class="line">            <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(folder) </span><br><span class="line">            <span class="keyword">if</span> <span class="string">'jpg'</span> <span class="keyword">in</span> f)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">blur_image</span><span class="params">(filename)</span>:</span> </span><br><span class="line">    im = Image.open(filename)</span><br><span class="line">    im = im.filter(ImageFilter.BLUR)</span><br><span class="line">    im = im.filter(ImageFilter.MinFilter(<span class="number">3</span>))</span><br><span class="line">    base, fname = os.path.split(filename) </span><br><span class="line">    save_path = os.path.join(base, SAVE_DIRECTORY, fname)</span><br><span class="line">    im.save(save_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当线程处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">single_blur</span><span class="params">(images)</span>:</span></span><br><span class="line">    <span class="keyword">for</span>  image <span class="keyword">in</span> images:</span><br><span class="line">        blur_image(image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用map处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mult_blur</span><span class="params">(images)</span>:</span></span><br><span class="line">    pool = Pool()      </span><br><span class="line">    pool.map(blur_image, images)</span><br><span class="line">    pool.close()</span><br><span class="line">    pool.join()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    folder = os.path.abspath(<span class="string">'imgs'</span>)</span><br><span class="line">    path = os.path.join(folder, SAVE_DIRECTORY)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        os.makedirs(path)</span><br><span class="line">    images = get_image_paths(folder)</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    <span class="comment">#single_blur(images)</span></span><br><span class="line">    mult_blur(images)</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'blur images in &#123;&#125;s'</span>.format(time.time() - start_time)</span><br></pre></td></tr></table></figure>
+<p>o</p>
+
+  	
+  
+</div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/笔记/python_map用法/">python 一行代码并发模糊图片</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 albin 的个人博客">albin</a></p>
+        <p><span>发布时间:</span>2015年06月10日 - 16时40分</p>
+        <p><span>最后更新:</span>2016年01月12日 - 11时38分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/笔记/python_map用法/" title="python 一行代码并发模糊图片">http://albin.ga/笔记/python_map用法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://albin.ga/笔记/python_map用法/　　作者: albin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/笔记/python抓取图片/">
+                    python抓取图片
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/笔记/phonegamp_manaul/">
+                    PhoneGap使用帮助
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E4B_u524D_u4E00_u76F4_u7528_u7684Thread_2C_u6216_u8005Threading_2C_u6216_u8005_u5199_u6210woker_u6A21_u5F0F_2C_u4F46_u6211_u7528python_u7EDD_u5927_u591A_u6570_u60C5_u51B5_u4E0B_u8FD8_u662F_u505A_u4E00_u4E9B_u5C0F_u5DE5_u5177_2C_u4E3A_u5F97_u5C31_u662F_u5FEB_u6377_u65B9_u4FBF_2C_u540E_u6765_u53D1_u73B0_u7528multiprocessing_2C_u7528map_u53BB_u6620_u5C04_u53C2_u6570_u4E0E_u65B9_u6CD5_u771F_u662F_u592A_u65B9_u4FBF_u4E86"><span class="toc-number">1.</span> <span class="toc-text">之前一直用的Thread,或者Threading,或者写成woker模式,但我用python绝大多数情况下还是做一些小工具,为得就是快捷方便,后来发现用multiprocessing,用map去映射参数与方法真是太方便了.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E0B_u9762_u662F_u4E00_u5C0F_u6BB5_u7528PIL_u6A21_u7CCA_u591A_u5F20_u56FE_u7247"><span class="toc-number">2.</span> <span class="toc-text">下面是一小段用PIL模糊多张图片</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="笔记/python_map用法/" data-title="python 一行代码并发模糊图片" data-url="http://albin.ga/笔记/python_map用法/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"albin"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/笔记/python抓取图片/" title="上一篇: python抓取图片">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/笔记/phonegamp_manaul/" title="下一篇: PhoneGap使用帮助">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/笔记/hexo-org-test/">hexo-org-test</a></li><li class="post-list-item"><a class="post-list-link" href="/个人信息/简历/我的个人简历/">我的个人简历</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/sublime3_package_control/">Sublime Text的package-control安装</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/c++学习笔记/">c++ 11 Lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/cocos/ccs2js/">ccs2js guides</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/Emacs网易云音乐/">Emacs网易云音乐 瞎折腾</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/python抓取图片/">python抓取图片</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/python_map用法/">python 一行代码并发模糊图片</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/phonegamp_manaul/">PhoneGap使用帮助</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/git-自动部署/">git 自动部署</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 albin
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

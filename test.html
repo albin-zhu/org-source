@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-01-19 二 17:11 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>python学习笔记</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="root" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">python学习笔记</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline29">1. 基本语法</a>
+<ul>
+<li><a href="#orgheadline2">1.1. 简述</a>
+<ul>
+<li><a href="#orgheadline1">1.1.1. 讨厌的编码</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">1.2. 数据类型与变量</a>
+<ul>
+<li><a href="#orgheadline5">1.2.1. 基本数据类型</a></li>
+<li><a href="#orgheadline8">1.2.2. list and tuple</a></li>
+<li><a href="#orgheadline11">1.2.3. dict and set</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline15">1.3. 控制语句</a>
+<ul>
+<li><a href="#orgheadline13">1.3.1. 条件判断</a></li>
+<li><a href="#orgheadline14">1.3.2. 循环</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline19">1.4. 函数注意点</a>
+<ul>
+<li><a href="#orgheadline16">1.4.1. 默认参数</a></li>
+<li><a href="#orgheadline17">1.4.2. 可变参数</a></li>
+<li><a href="#orgheadline18">1.4.3. 关键字参数</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline28">1.5. 如何变得简洁</a>
+<ul>
+<li><a href="#orgheadline20">1.5.1. 切片</a></li>
+<li><a href="#orgheadline21">1.5.2. 迭代</a></li>
+<li><a href="#orgheadline22">1.5.3. 列表生成式</a></li>
+<li><a href="#orgheadline23">1.5.4. yield</a></li>
+<li><a href="#orgheadline24">1.5.5. map and reduce</a></li>
+<li><a href="#orgheadline25">1.5.6. filter and sorted</a></li>
+<li><a href="#orgheadline26">1.5.7. lambda</a></li>
+<li><a href="#orgheadline27">1.5.8. 装饰器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+开始之前咱先来一张图
+</p>
+
+<div class="figure">
+<p><img src="http://7xq4oz.com1.z0.glb.clouddn.com/hexo/python_emacs.png" alt="emacs" />
+</p>
+</div>
+
+
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">1</span> 基本语法</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.1</span> 简述</h3>
+<div class="outline-text-3" id="text-1-1">
+<ol class="org-ol">
+<li># 之后表注释</li>
+<li>通常一个语句一行，用标准换行(\n)</li>
+<li>\ 表示继续上一行</li>
+<li>; 将两个语句连接在一行</li>
+<li>: 将代码块的头和体分开，比如 if express :</li>
+<li>python的代码块不是用花括号体现，而是用相同的缩进表示</li>
+<li>python 文件以模块的形式组织</li>
+</ol>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-4">
+<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> 讨厌的编码</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/bin/env python</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">coding=utf-8</span>
+</pre>
+</div>
+
+<p>
+第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；
+第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。
+申明了UTF-8编码并不意味着你的.py文件就是UTF-8编码的，必须并且要确保文本编辑器正在使用UTF-8 without BOM编码
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'ABC'</span>.encode(<span style="color: #E6DB74;">'ascii'</span>)
+<span style="color: #F92672;">print</span> u<span style="color: #E6DB74;">'&#20013;&#25991;'</span>.encode(<span style="color: #E6DB74;">'utf-8'</span>)
+<span style="color: #F92672;">print</span> u<span style="color: #E6DB74;">'&#20013;&#25991;'</span>.encode(<span style="color: #E6DB74;">'ascii'</span>)
+<span style="color: #F92672;">print</span> b<span style="color: #E6DB74;">'\xe4\xb8\xad\xe6\x96\x87'</span>.decode(<span style="color: #E6DB74;">'utf-8'</span>)
+</pre>
+</div>
+
+<p>
+纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。
+在bytes中，无法显示为ASCII字符的字节，用 <b>\x##</b> 显示。
+反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法
+python 的格式化操作与C语言是一样的，如果不确定用什么 <b>%s</b> 是永远有效的。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">1.2</span> 数据类型与变量</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">1.2.1</span> 基本数据类型</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+在用的时候不用过分的去在意，但要知道它的类型有哪些，支持到什么程度，不要用错就OK
+</p>
+<ol class="org-ol">
+<li>整数，可以很长很长</li>
+<li>浮点数，也可以很长很长</li>
+<li>字符串，上面已经恶心过了</li>
+<li>布尔值，True\False, 不是true\false</li>
+<li>空值，None</li>
+</ol>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline3"></a>先看一小段简单的代码<br  /><div class="outline-text-5" id="text-1-2-1-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/bin/env python</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">coding=utf-8</span>
+
+<span style="color: #F92672;">from</span> fractions <span style="color: #F92672;">import</span> Fraction
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">main</span>():
+<span style="color: #E6DB74;">"""</span>
+<span style="color: #E6DB74;">&#25105;&#20204;&#26469;&#35762;&#19968;&#19979;&#26368;&#31616;&#21333;&#30340; python &#31243;&#24207;&#65306;</span>
+<span style="color: #E6DB74;">&#35299;&#37322;&#22411;&#35821;&#35328;&#65292;&#36816;&#34892;&#24930;&#65292;&#24320;&#21457;&#24555;&#12290;&#26368;&#24120;&#35265;&#20110;&#32593;&#31449;&#65292;&#20854;&#27425;&#26159;&#26085;&#24120;&#23567;&#24037;&#20855;&#65292;&#25110;&#32773;&#20195;&#26367;shell&#20570;&#31649;&#29702;&#33050;&#26412;&#12290;</span>
+<span style="color: #E6DB74;">&#23427;&#30340;&#35774;&#35745;&#23601;&#26159;&#20914;&#30528;&#8220;&#20248;&#38597;&#8220;&#8230;&#8220;&#31616;&#21333;&#8220;&#8230;&#8220;&#26126;&#30830;&#8220;&#65292;&#30475;&#36215;&#26469;&#22270;&#26862;&#30772;&#12290;</span>
+<span style="color: #E6DB74;">ps:(&#25105;&#19981;&#26159;&#27880;&#37322;&#65292;&#25105;&#26159;&#23383;&#31526;&#20018;&#65292;&#20294;&#25105;&#26377;&#27880;&#37322;&#30340;&#25928;&#26524;)</span>
+<span style="color: #E6DB74;">"""</span>
+2 <span style="color: #75715E;"># </span><span style="color: #75715E;">&#36825;&#26679;&#30495;&#30340;&#19981;&#20250;&#25253;&#38169;&#21527; &#65292;&#19978;&#36793;&#37027;&#20123;&#26159;&#23383;&#31526;&#20018;&#65292;&#25105;&#26159;&#25972;&#22411;&#65292;&#24212;&#35813;&#19981;&#20250;&#38169;&#21543;</span>
+
+<span style="color: #FD971F;">a</span>, <span style="color: #FD971F;">b</span>, <span style="color: #FD971F;">c</span>, <span style="color: #FD971F;">d</span> = <span style="color: #E6DB74;">"sb"</span>, 501 // 2, 501 / 2.0, 10 ** 192 / 3.0 <span style="color: #75715E;"># </span><span style="color: #75715E;">&#20320;&#30495;&#30340;&#22909;&#38271;</span>
+<span style="color: #FD971F;">b</span>, <span style="color: #FD971F;">a</span> = a,b
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"a is type (%s) : %s"</span> % (<span style="color: #F92672;">type</span>(a), a)
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"b is type (%s) : %s"</span> % (<span style="color: #F92672;">type</span>(b), b)
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"c is type (%s) : %s"</span> % (<span style="color: #F92672;">type</span>(c), c)
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"d is type (%s) : %s"</span> % (<span style="color: #F92672;">type</span>(d), d)
+
+<span style="color: #F92672;">print</span> u<span style="color: #E6DB74;">"&#26469;&#28857;&#22797;&#26434;&#30340;&#21543;"</span>
+<span style="color: #FD971F;">i_am_a_fraction</span> = Fraction(2, 6)
+<span style="color: #F92672;">print</span> <span style="color: #F92672;">str</span>(i_am_a_fraction)
+<span style="color: #FD971F;">i_am_a_fraction</span> += Fraction(7, 9)
+<span style="color: #F92672;">print</span> i_am_a_fraction
+<span style="color: #FD971F;">i_am_a_fraction</span> += 1
+<span style="color: #F92672;">print</span> i_am_a_fraction
+<span style="color: #FD971F;">i_am_a_fraction</span> += 1.0
+<span style="color: #F92672;">print</span> i_am_a_fraction
+
+<span style="color: #FD971F;">complex_number</span> = (1-0.3j) * (3+0.7j)
+<span style="color: #F92672;">print</span> complex_number
+<span style="color: #FD971F;">complex_number</span> -= 1
+<span style="color: #FD971F;">complex_number</span> *= 2
+<span style="color: #F92672;">try</span>:
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"complex_number.real = "</span> + c.real + <span style="color: #E6DB74;">", complex_number.imag = "</span> + c.imag
+<span style="color: #F92672;">except</span> <span style="color: #66D9EF;">TypeError</span> <span style="color: #F92672;">as</span> e:
+<span style="color: #F92672;">print</span> e
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"complex_number.real = %f, complex_number.imag = %fj"</span>\
+% (complex_number.real, complex_number.imag)
+
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+main()
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline4"></a>ps:字符串的一些API，适用接下来的list#<br  /><div class="outline-text-5" id="text-1-2-1-2">
+<ol class="org-ol">
+<li>substring, 变态的要来了</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a_str</span> = <span style="color: #E6DB74;">'hey, come on baby, sub me!'</span>
+<span style="color: #F92672;">print</span> a_str[5:9]
+<span style="color: #F92672;">print</span> a_str[5:]
+<span style="color: #F92672;">print</span> a_str[:-9]
+</pre>
+</div>
+<p>
+output:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">come
+come on baby, sub me!
+hey, come on baby
+</pre>
+</div>
+<ol class="org-ol">
+<li>reverssring</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a_str</span> = <span style="color: #E6DB74;">'0123456789'</span>
+<span style="color: #F92672;">print</span> a_str[::-1]
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(10):
+<span style="color: #F92672;">print</span> a_str[i::-1]
+<span style="color: #F92672;">print</span> a_str[::-2]
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(5):
+<span style="color: #F92672;">print</span> a_str[i::-2]
+</pre>
+</div>
+<p>
+output:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">9876543210
+0
+10
+210
+3210
+43210
+543210
+6543210
+76543210
+876543210
+9876543210
+97531
+0
+1
+20
+31
+420
+</pre>
+</div>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.2.2</span> list and tuple</h4>
+<div class="outline-text-4" id="text-1-2-2">
+</div><ol class="org-ol"><li><a id="orgheadline6"></a>list<br  /><div class="outline-text-5" id="text-1-2-2-1">
+<p>
+list也就是数组，但不是c++的list,它更像PHP，或者JS，它说下来也就是下面几点：
+</p>
+<ol class="org-ol">
+<li>变长</li>
+<li>类型不要求一致</li>
+<li>取长度的时候用的是 len, 这一点基本与其它类型都一样</li>
+<li>不是push,是append.</li>
+<li>有越界风险，取最后一个用somelist[-1]</li>
+<li>可以嵌套，与第二点相符</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a_list</span> = [i*i <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(10)]
+<span style="color: #FD971F;">last_one</span> = a_list[-1]
+<span style="color: #F92672;">print</span> last_one
+<span style="color: #F92672;">print</span> a_list.pop()
+<span style="color: #F92672;">print</span> a_list
+
+<span style="color: #FD971F;">mix_list</span> = [<span style="color: #E6DB74;">"a"</span>, 1, [<span style="color: #AE81FF;">None</span>, <span style="color: #AE81FF;">True</span>, <span style="color: #AE81FF;">False</span>], {<span style="color: #E6DB74;">'a'</span>:1, <span style="color: #E6DB74;">'b'</span>:<span style="color: #E6DB74;">"2"</span>}, (<span style="color: #E6DB74;">"sb"</span>, 520)]
+mix_list.append(<span style="color: #E6DB74;">"2b"</span>)
+<span style="color: #F92672;">print</span> mix_list
+</pre>
+</div>
+<p>
+output:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">9
+9
+[0, 1, 4, 9, 16, 25, 36, 49, 64]
+[<span style="color: #E6DB74;">'a'</span>, 1, [<span style="color: #AE81FF;">None</span>, <span style="color: #AE81FF;">True</span>, <span style="color: #AE81FF;">False</span>], {<span style="color: #E6DB74;">'a'</span>: 1, <span style="color: #E6DB74;">'b'</span>: <span style="color: #E6DB74;">'2'</span>}, (<span style="color: #E6DB74;">'sb'</span>, 520), <span style="color: #E6DB74;">'2b'</span>]
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline7"></a>tuple<br  /><div class="outline-text-5" id="text-1-2-2-2">
+<p>
+另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改。
+需要注意的是定义单个tuple的时候，不能用 <b>t = (1)</b>,这表示的是 <b>t = 1</b> ，而是要用 <b>t = (1, )</b>
+</p>
+
+<p>
+ps: enmuator
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.2.3</span> dict and set</h4>
+<div class="outline-text-4" id="text-1-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline9"></a>dict<br  /><div class="outline-text-5" id="text-1-2-3-1">
+<p>
+它就是一个map,安全取值有两种方式，取之前用 <b>in</b>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ptyhon">if key in d:
+ d[key]
+</pre>
+</div>
+<p>
+第二种用get
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">d.get(key)
+d.get(key, default) <span style="color: #75715E;"># </span><span style="color: #75715E;">return default</span>
+</pre>
+</div>
+<p>
+删除只需要 <i><b>d.pop(key)</b></i>, value会自动删除
+ps:上面的list 中用到了dict
+</p>
+</div></li>
+
+<li><a id="orgheadline10"></a>set<br  /><div class="outline-text-5" id="text-1-2-3-2">
+<p>
+<i><b>aset.add(key)</b></i>
+<i><b>aset.remove(key)</b></i>
+就这两个api，另外注意它是唯一的，无序的就OK
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">1.3</span> 控制语句</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+首先要说明的是，python没有 <i><b>switch</b></i>
+</p>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.3.1</span> 条件判断</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+<i><b>if elif else</b></i> 简单的不多说了，不过用 if 可以写三元运算 <i><b>V1 if X else V2</b></i> 。 如果确定 V1不是空字符串('')的话，也可以： <i><b>(X and V1) or V2</b></i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">1.3.2</span> 循环</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+要注意的是多层循环中break是跳出当前循环
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+ <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"i : %s"</span> % i
+ <span style="color: #F92672;">for</span> j <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+     <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"j : %s"</span> % j
+     <span style="color: #F92672;">for</span> k <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+         <span style="color: #F92672;">if</span> k == 1:
+             <span style="color: #F92672;">break</span>
+         <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"k : %s"</span> % k
+</pre>
+</div>
+<p>
+如果要跳出所有循环，可以raise一个异常，在外边捕捉，或者定义成函数跳出
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">try</span>:
+ <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+     <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"i : %s"</span> % i
+     <span style="color: #F92672;">for</span> j <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+         <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"j : %s"</span> % j
+         <span style="color: #F92672;">for</span> k <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+             <span style="color: #F92672;">if</span> k == 1:
+                 <span style="color: #F92672;">raise</span> <span style="color: #66D9EF;">Exception</span>(<span style="color: #E6DB74;">"test"</span>)
+             <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"k : %s"</span> % k
+<span style="color: #F92672;">except</span> <span style="color: #66D9EF;">Exception</span> <span style="color: #F92672;">as</span> e:
+ <span style="color: #F92672;">print</span> e
+</pre>
+</div>
+<p>
+实在想跳出指定的，可以用for else语句，如果for正常执行完，会调用else语句块
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+ <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"i : %s"</span> % i
+ <span style="color: #F92672;">for</span> j <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+     <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"j : %s"</span> % j
+     <span style="color: #F92672;">for</span> k <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(3):
+         <span style="color: #F92672;">break</span>
+     <span style="color: #F92672;">else</span>:<span style="color: #F92672;">continue</span>
+     <span style="color: #F92672;">break</span>
+ <span style="color: #F92672;">else</span>:<span style="color: #F92672;">continue</span>
+ <span style="color: #F92672;">break</span>
+</pre>
+</div>
+<p>
+output
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">i : 0
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+i : 1
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+i : 2
+j : 0
+k : 0
+j : 1
+k : 0
+j : 2
+k : 0
+================================================================================
+i : 0
+j : 0
+k : 0
+test
+================================================================================
+i : 0
+j : 0
+-----------------------------------------------------
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">1.4</span> 函数注意点</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+任意函数都有反回值，如果没有 <i><b>return</b></i>,返回值是 <i><b>None</b></i>
+</p>
+</div>
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">1.4.1</span> 默认参数</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">xxx</span>(arg1, arg2 = defaultvalue):
+ <span style="color: #F92672;">pass</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">1.4.2</span> 可变参数</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">calc</span>(numbers):
+ <span style="color: #F92672;">sum</span> = 0
+ <span style="color: #F92672;">for</span> n <span style="color: #F92672;">in</span> numbers:
+     <span style="color: #F92672;">sum</span> = <span style="color: #F92672;">sum</span> + n * n
+ <span style="color: #F92672;">return</span> <span style="color: #F92672;">sum</span>
+
+calc((1,2,3,4,5))
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">calc</span>(*numbers):
+ <span style="color: #F92672;">sum</span> = 0
+ <span style="color: #F92672;">for</span> n <span style="color: #F92672;">in</span> numbers:
+     <span style="color: #F92672;">sum</span> = <span style="color: #F92672;">sum</span> + n * n
+     <span style="color: #F92672;">return</span> <span style="color: #F92672;">sum</span>
+
+<span style="color: #FD971F;">args</span> = (1,2,3,4,5)
+calc(*args) <span style="color: #75715E;"># </span><span style="color: #75715E;">&#21487;&#20197;&#25226;tuple&#21464;&#25104;&#21442;&#25968;&#20381;&#27425;&#20256;&#20837;</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">1.4.3</span> 关键字参数</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">person</span>(name, age, **kw):
+ <span style="color: #F92672;">if</span> <span style="color: #E6DB74;">'city'</span> <span style="color: #F92672;">in</span> kw:
+     <span style="color: #75715E;"># </span><span style="color: #75715E;">&#26377;city&#21442;&#25968;</span>
+     <span style="color: #F92672;">pass</span>
+ <span style="color: #F92672;">if</span> <span style="color: #E6DB74;">'job'</span> <span style="color: #F92672;">in</span> kw:
+     <span style="color: #75715E;"># </span><span style="color: #75715E;">&#26377;job&#21442;&#25968;</span>
+     <span style="color: #F92672;">pass</span>
+     <span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">'name:'</span>, name, <span style="color: #E6DB74;">'age:'</span>, age, <span style="color: #E6DB74;">'other:'</span>, kw)
+</pre>
+</div>
+<p>
+如果想限制传入的值可以用
+<i><b>def person(name, age, *, city, job)</b></i> ,那么city与job就是必填项，当然这里也可以用默认值，比如 <i><b>def person(name, age, *,city="Shangehai", job)</b></i> ,注意一下关键字参数如果用默认值是不用关心顺序的。
+dict可以在前边加上'**',做为关键字参数
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">extra</span> = {<span style="color: #E6DB74;">'city'</span>: <span style="color: #E6DB74;">'Beijing'</span>, <span style="color: #E6DB74;">'job'</span>: <span style="color: #E6DB74;">'Engineer'</span>}
+person(<span style="color: #E6DB74;">"SB"</span>, 28, **extra)
+</pre>
+</div>
+<p>
+TEST:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">f1</span>(a, b, c=0, *args, **kw):
+ <span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">'a ='</span>, a, <span style="color: #E6DB74;">'b ='</span>, b, <span style="color: #E6DB74;">'c ='</span>, c, <span style="color: #E6DB74;">'args ='</span>, args, <span style="color: #E6DB74;">'kw ='</span>, kw)
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">f2</span>(a, b, c=0, *, d, **kw):
+ <span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">'a ='</span>, a, <span style="color: #E6DB74;">'b ='</span>, b, <span style="color: #E6DB74;">'c ='</span>, c, <span style="color: #E6DB74;">'d ='</span>, d, <span style="color: #E6DB74;">'kw ='</span>, kw)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">1.5</span> 如何变得简洁</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">1.5.1</span> 切片</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+还记得之前的substring吗，切片操作还可以用于 <i>list</i>, <i>tuple</i>,另外还有一种，/*a[:]*/ 会拷贝出一个新的
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">1.5.2</span> 迭代</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+比如遍历一个dict
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">d</span> = {<span style="color: #E6DB74;">'a'</span>:1, <span style="color: #E6DB74;">'b'</span>:2, <span style="color: #E6DB74;">'c'</span>:3}
+<span style="color: #F92672;">for</span> k <span style="color: #F92672;">in</span> d:
+ <span style="color: #F92672;">print</span> d
+
+<span style="color: #F92672;">for</span> k, v <span style="color: #F92672;">in</span> d:
+ <span style="color: #F92672;">print</span> k
+ <span style="color: #F92672;">print</span> v
+</pre>
+</div>
+<p>
+list, tuple, string
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ptyhon">for ch in 'abcdefg':
+    print ch
+for v in [1,2,3,4]:
+    print v
+for t in (1,2,3,4,5):
+    print t
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">1.5.3</span> 列表生成式</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+上边在说到list的时候提到过一次
+<i><b>[a + b for a in A if EXP for b in B if EXP]</b></i>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a</span> = <span style="color: #F92672;">list</span>(<span style="color: #F92672;">range</span>(1,100))
+<span style="color: #75715E;"># </span><span style="color: #75715E;">a = [1,2,3, ...,99, 100]</span>
+(i**2 <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span>(10) <span style="color: #F92672;">if</span> i % 2 == 0)
+<span style="color: #75715E;"># </span><span style="color: #75715E;">0&#21040;10&#20043;&#38388;&#20598;&#25968;&#30340;&#24179;&#26041;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">1.5.4</span> yield</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+上边说的都是一些简单的，下边来生成一个斐波拉契数列，好像上边的做不了。。。。
+先来打印一下
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">fib</span>(<span style="color: #F92672;">max</span>):
+    <span style="color: #FD971F;">n</span>, <span style="color: #FD971F;">a</span>, <span style="color: #FD971F;">b</span> = 0, 0, 1
+    <span style="color: #F92672;">while</span> n &lt; <span style="color: #F92672;">max</span>:
+        <span style="color: #F92672;">print</span>(b)
+        <span style="color: #FD971F;">a</span>, <span style="color: #FD971F;">b</span> = b, a + b
+        <span style="color: #FD971F;">n</span> = n + 1
+    <span style="color: #F92672;">return</span> <span style="color: #E6DB74;">'done'</span>
+</pre>
+</div>
+<p>
+但现在的需要不是打印，而是生成一个迭代器
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">fib</span>(<span style="color: #F92672;">max</span>):
+    <span style="color: #FD971F;">n</span>, <span style="color: #FD971F;">a</span>, <span style="color: #FD971F;">b</span> = 0, 0, 1
+    <span style="color: #F92672;">while</span> n &lt; <span style="color: #F92672;">max</span>:
+        <span style="color: #F92672;">yield</span> b
+        <span style="color: #FD971F;">a</span>, <span style="color: #FD971F;">b</span> = b, a + b
+        <span style="color: #FD971F;">n</span> = n + 1
+    <span style="color: #F92672;">return</span> <span style="color: #E6DB74;">'done'</span>
+</pre>
+</div>
+<p>
+好像与上边的没有区别，只是在第四行把print变成了yield，只样返回值不在是**done**了， generator
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">1.5.5</span> map and reduce</h4>
+<div class="outline-text-4" id="text-1-5-5">
+<p>
+上边的**列表生成式**,可以把一个列表变成另一个，但如要求来的更复杂一点，比函数 f(x).
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">res</span> = <span style="color: #F92672;">map</span>(f, (1,2,3))
+<span style="color: #75715E;"># </span><span style="color: #75715E;">res = (f(1), f(2), f(3))</span>
+</pre>
+</div>
+<p>
+reduce和map类似，它的函数要求为f(x, y)
+sample：假设python 没有提供int(x) 函数，现在来实它
+<i><b>reduce(f, (a,b,c,d)) = f(f(f(a,b),c),d)</b></i>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">char2num</span>(s):
+    <span style="color: #F92672;">return</span> {<span style="color: #E6DB74;">'0'</span>: 0, <span style="color: #E6DB74;">'1'</span>: 1, <span style="color: #E6DB74;">'2'</span>: 2, <span style="color: #E6DB74;">'3'</span>: 3, <span style="color: #E6DB74;">'4'</span>: 4, <span style="color: #E6DB74;">'5'</span>: 5, <span style="color: #E6DB74;">'6'</span>: 6, <span style="color: #E6DB74;">'7'</span>: 7, <span style="color: #E6DB74;">'8'</span>: 8, <span style="color: #E6DB74;">'9'</span>: 9}[s]
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">str2int</span>(s):
+    <span style="color: #F92672;">return</span> <span style="color: #F92672;">reduce</span>(<span style="color: #F92672;">lambda</span> x, y: x * 10 + y, <span style="color: #F92672;">map</span>(char2num, s))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25"><span class="section-number-4">1.5.6</span> filter and sorted</h4>
+<div class="outline-text-4" id="text-1-5-6">
+<p>
+filter 与 map的区别在于, <i><b>filter</b></i> 要求f(x)返回一个布尔值，来判断是否保留x
+sorted,这个还是看代码吧
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> operator <span style="color: #F92672;">import</span> itemgetter
+
+<span style="color: #FD971F;">L</span> = [<span style="color: #E6DB74;">'bob'</span>, <span style="color: #E6DB74;">'about'</span>, <span style="color: #E6DB74;">'Zoo'</span>, <span style="color: #E6DB74;">'Credit'</span>]
+
+<span style="color: #F92672;">print</span>(<span style="color: #F92672;">sorted</span>(L))
+<span style="color: #F92672;">print</span>(<span style="color: #F92672;">sorted</span>(L, key=<span style="color: #F92672;">str</span>.lower))
+
+<span style="color: #FD971F;">students</span> = [(<span style="color: #E6DB74;">'Bob'</span>, 75), (<span style="color: #E6DB74;">'Adam'</span>, 92), (<span style="color: #E6DB74;">'Bart'</span>, 66), (<span style="color: #E6DB74;">'Lisa'</span>, 88)]
+
+<span style="color: #F92672;">print</span>(<span style="color: #F92672;">sorted</span>(students, key=itemgetter(0)))
+<span style="color: #F92672;">print</span>(<span style="color: #F92672;">sorted</span>(students, key=<span style="color: #F92672;">lambda</span> t: t[1]))
+<span style="color: #F92672;">print</span>(<span style="color: #F92672;">sorted</span>(students, key=itemgetter(1), reverse=<span style="color: #AE81FF;">True</span>))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">1.5.7</span> lambda</h4>
+<div class="outline-text-4" id="text-1-5-7">
+<p>
+<i><b>lambda x : f(x)</b></i> 其实就等于
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">func</span>(x):
+    <span style="color: #F92672;">return</span> f(x)
+</pre>
+</div>
+<p>
+需要注意的是lambda只能有一个表达式，并且不需要写return,其它的与function没有区别
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">map</span>(<span style="color: #F92672;">lambda</span> x: x * x, (1,2,3,4,5))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">1.5.8</span> 装饰器</h4>
+<div class="outline-text-4" id="text-1-5-8">
+<p>
+这东西它是个什么呢，在C#，JAVA， AS3中我们都有用过，举个例子
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">say</span>():
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"Hi, I am a function with name 'say'"</span>
+say()
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">log</span>(func):
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wrapper</span>(*args, **kw):
+        <span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">'call %s():'</span> % func.<span style="color: #F92672;">__name__</span>)
+        <span style="color: #F92672;">return</span> func(*args, **kw)
+    <span style="color: #F92672;">return</span> wrapper
+<span style="color: #66D9EF;">@log</span>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">say</span>():
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"Hi, I am a function with name 'say'"</span>
+say()
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">log</span>(text):
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">decorator</span>(func):
+        <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wrapper</span>(*args, **kw):
+            <span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">'%s %s():'</span> % (text, func.<span style="color: #F92672;">__name__</span>))
+            <span style="color: #F92672;">return</span> func(*args, **kw)
+        <span style="color: #F92672;">return</span> wrapper
+    <span style="color: #F92672;">return</span> decorator
+
+<span style="color: #66D9EF;">@log</span>(<span style="color: #E6DB74;">"custom"</span>)
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">say</span>():
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"Hi, I am a function with name 'say'"</span>
+say()
+
+<span style="color: #F92672;">import</span> functools
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">log</span>(func):
+    <span style="color: #66D9EF;">@functools.wraps</span>(func)
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wrapper</span>(*args, **kw):
+        <span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">'call %s():'</span> % func.<span style="color: #F92672;">__name__</span>)
+        <span style="color: #F92672;">return</span> func(*args, **kw)
+    <span style="color: #F92672;">return</span> wrapper
+<span style="color: #66D9EF;">@log</span>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">say</span>():
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"Hi, I am a function with name 'say'"</span>
+say()
+
+<span style="color: #F92672;">import</span> functools
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">log</span>(text):
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">decorator</span>(func):
+        <span style="color: #66D9EF;">@functools.wraps</span>(func)
+        <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wrapper</span>(*args, **kw):
+            <span style="color: #F92672;">print</span>(<span style="color: #E6DB74;">'%s %s():'</span> % (text, func.<span style="color: #F92672;">__name__</span>))
+            <span style="color: #F92672;">return</span> func(*args, **kw)
+        <span style="color: #F92672;">return</span> wrapper
+    <span style="color: #F92672;">return</span> decorator
+<span style="color: #66D9EF;">@log</span>(<span style="color: #E6DB74;">"test"</span>)
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">say</span>():
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"Hi, I am a function with name 'say'"</span>
+say()
+</pre>
+</div>
+
+<p>
+未完待续 <a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">参考</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-01-17 日 18:12&gt;</span></span></p>
+<p class="author">Author: root</p>
+<p class="date">Created: 2016-01-19 二 17:11</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Emacs网易云音乐 瞎折腾 | Albin Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#在Emacs播放音乐emacs可以调用mplayer来播放音乐,已经有很多实现的方式来实现emacs下听音的mode.时下最热门的音乐软件莫过于网易云音乐,今天就来实现一个简单的网易云音乐Emacs版本.
+工具准备
+charles 查看网易云音乐的API
+网易云音乐客户端 没它也没法截包
+emacs 咱就是在这里边整这个事的
+mplayer 播放音乐
+
+播放url确定mplayer已经装好,在o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emacs网易云音乐 瞎折腾">
+<meta property="og:url" content="http://albin.ga/笔记/Emacs网易云音乐/index.html">
+<meta property="og:site_name" content="Albin Note">
+<meta property="og:description" content="#在Emacs播放音乐emacs可以调用mplayer来播放音乐,已经有很多实现的方式来实现emacs下听音的mode.时下最热门的音乐软件莫过于网易云音乐,今天就来实现一个简单的网易云音乐Emacs版本.
+工具准备
+charles 查看网易云音乐的API
+网易云音乐客户端 没它也没法截包
+emacs 咱就是在这里边整这个事的
+mplayer 播放音乐
+
+播放url确定mplayer已经装好,在o">
+<meta property="og:image" content="http://albin.ga/img/net-cm.png">
+<meta property="og:image" content="http://albin.ga/img/net-cm-good.png">
+<meta property="og:updated_time" content="2016-01-18T11:06:16.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emacs网易云音乐 瞎折腾">
+<meta name="twitter:description" content="#在Emacs播放音乐emacs可以调用mplayer来播放音乐,已经有很多实现的方式来实现emacs下听音的mode.时下最热门的音乐软件莫过于网易云音乐,今天就来实现一个简单的网易云音乐Emacs版本.
+工具准备
+charles 查看网易云音乐的API
+网易云音乐客户端 没它也没法截包
+emacs 咱就是在这里边整这个事的
+mplayer 播放音乐
+
+播放url确定mplayer已经装好,在o">
+  
+    <link rel="alternative" href="/atom.xml" title="Albin Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favico.jpg">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/favico.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">albin</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">不务正业的现役程序猿</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/个人信息/简历/我的个人简历/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:albinyewen@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/albinyewen" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Facebook"><a class="Facebook" target="_blank" href="https://www.facebook.com/hialbin" title="Facebook"></a></li>
+                            
+                                <li id="Twitter"><a class="Twitter" target="_blank" href="http://twitter.com/zybyy" title="Twitter"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Lambda/" style="font-size: 10px;">Lambda</a> <a href="/tags/Unity3D/" style="font-size: 10px;">Unity3D</a> <a href="/tags/app/" style="font-size: 10px;">app</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/cocos2s-js/" style="font-size: 10px;">cocos2s-js</a> <a href="/tags/elisp/" style="font-size: 10px;">elisp</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git-hook/" style="font-size: 10px;">git-hook</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/package-control/" style="font-size: 10px;">package-control</a> <a href="/tags/phonegap/" style="font-size: 10px;">phonegap</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/游戏/" style="font-size: 10px;">游戏</a> <a href="/tags/笔记/" style="font-size: 20px;">笔记</a> <a href="/tags/简历/" style="font-size: 10px;">简历</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">albin</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/favico.jpg" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">albin</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不务正业的现役程序猿</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/个人信息/简历/我的个人简历/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:albinyewen@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/albinyewen" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                                <li id="Facebook"><a class="Facebook" target="_blank" href="https://www.facebook.com/hialbin" title="Facebook"></a></li>
+                            
+                                <li id="Twitter"><a class="Twitter" target="_blank" href="http://twitter.com/zybyy" title="Twitter"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Emacs网易云音乐" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/笔记/Emacs网易云音乐/" class="article-date">
+      <time datetime="2015-06-17T08:19:23.000Z" itemprop="datePublished">2015-06-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Emacs网易云音乐 瞎折腾
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elisp/">elisp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+<div class="article-entry" itemprop="articleBody">
+  
+  	
+  	
+  	  <p>#在Emacs播放音乐<br>emacs可以调用mplayer来播放音乐,已经有很多实现的方式来实现emacs下听音的mode.时下最热门的音乐软件莫过于网易云音乐,今天就来实现一个简单的网易云音乐Emacs版本.</p>
+<h2 id="u5DE5_u5177_u51C6_u5907"><a href="#u5DE5_u5177_u51C6_u5907" class="headerlink" title="工具准备"></a>工具准备</h2><ul>
+<li>charles 查看网易云音乐的API</li>
+<li>网易云音乐客户端 没它也没法截包</li>
+<li>emacs 咱就是在这里边整这个事的</li>
+<li>mplayer 播放音乐</li>
+</ul>
+<h2 id="u64AD_u653Eurl"><a href="#u64AD_u653Eurl" class="headerlink" title="播放url"></a>播放url</h2><p>确定mplayer已经装好,在osx下<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mplayer</span><br></pre></td></tr></table></figure></p>
+<p>然后把路径添加下emacs的path下</p>
+<h3 id="u8C03_u7528mplayer"><a href="#u8C03_u7528mplayer" class="headerlink" title="调用mplayer"></a>调用mplayer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-process&#10;&#21551;&#21160;&#19968;&#20010;&#26032;&#30340;&#23376;&#36827;&#31243;&#21435;&#36305;&#19968;&#20010;&#36719;&#20214;&#25110;&#21629;&#20196;&#10;``` lisp&#10;(start-process &#34;my-process&#34; &#34;foo&#34; &#34;sleep&#34; &#34;100&#34;)&#10;&#9;&#8658; #&#60;process my-process&#62;)&#10;(start-process &#34;my-process&#34; &#34;foo&#34; &#34;ls&#34; &#34;-l&#34; &#34;/bin&#34;&#10;&#9;&#8658; #&#60;process my-process&#60;1&#62;&#62;</span><br></pre></td></tr></table></figure>
+<p>那么可以用它去启动mplayer<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;; 播放当前列表的第几首</span></span><br><span class="line"><span class="list">(<span class="keyword">defun</span> play-with-index<span class="list">(<span class="keyword">index</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span> <span class="string">"nIndex:"</span>)</span> <span class="comment">;; M-x 可以调用该函数, 并且可以传入一个整型</span></span><br><span class="line">  <span class="list">(<span class="keyword">kill-player</span>)</span>  <span class="comment">;; 关闭之前播放的音乐</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> current-index index)</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> mp3-url <span class="list">(<span class="keyword">get-mp3-url</span> index)</span>)</span> <span class="comment">;; 拿到播放地址 返回类似 http://xxx.xxx.xxx/xxx/xxx/xxx.mp3</span></span><br><span class="line">  <span class="list">(<span class="keyword">message</span> mp3-url)</span> <span class="comment">;; minibuf 通知地址</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> player-thread <span class="list">(<span class="keyword">start-process</span> <span class="string">"albin-music-proc"</span> <span class="literal">nil</span> albin-music-player mp3-url)</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">set-process-sentinel</span> player-thread <span class="quoted">'after-song</span>)</span> <span class="comment">;; 设置状态监听</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> play-status <span class="string">"playing"</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">render</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="u76D1_u542Cmplayer_u7684_u72B6_u6001"><a href="#u76D1_u542Cmplayer_u7684_u72B6_u6001" class="headerlink" title="监听mplayer的状态"></a>监听mplayer的状态</h3><p>elisp的函数命名真的是很好玩,不像我们现在的风格,比如set-process-sentinel,翻译过来应该是设置进程哨兵.用一个哨兵去监听这个进程.上面提到的after-song<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> after-song<span class="list">(<span class="keyword">player</span> status)</span></span><br><span class="line">  <span class="list">(<span class="keyword">when</span> <span class="list">(<span class="keyword">string-match</span>  <span class="string">"\\(finished\\|Exiting\\)"</span> status)</span></span><br><span class="line">    <span class="list">(<span class="keyword">next-song</span>)</span>)</span>)</span> <span class="comment">;; 播放下一首歌</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="u64AD_u653E_5C_u6682_u505C_5C_u4E0A_u4E0B_u9996"><a href="#u64AD_u653E_5C_u6682_u505C_5C_u4E0A_u4E0B_u9996" class="headerlink" title="播放\暂停\上下首"></a>播放\暂停\上下首</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> next-song <span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">&gt;=</span> current-index <span class="list">(<span class="keyword">-</span> <span class="list">(<span class="keyword">length</span> current-playlist)</span> <span class="number">1</span>)</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">play-with-index</span> <span class="number">0</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">play-with-index</span> <span class="list">(<span class="keyword">+</span> current-index <span class="number">1</span>)</span>)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">defun</span> prev-song<span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">&lt;</span> current-index <span class="number">1</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">play-with-index</span> <span class="list">(<span class="keyword">-</span> <span class="list">(<span class="keyword">length</span> current-playlist)</span> <span class="number">1</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">play-with-index</span> <span class="list">(<span class="keyword">-</span> current-index <span class="number">1</span>)</span>)</span>)</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="list">(<span class="keyword">defun</span> play-or-pause<span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">interactive</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">string-match</span> play-status <span class="string">"playing"</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">progn</span></span><br><span class="line">	<span class="list">(<span class="keyword">setq</span> play-status <span class="string">"pause"</span>)</span></span><br><span class="line">	<span class="list">(<span class="keyword">process-send-string</span> player-thread <span class="string">"pause\n"</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">progn</span></span><br><span class="line">      <span class="list">(<span class="keyword">setq</span> play-status <span class="string">"playing"</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">process-send-string</span> player-thread <span class="string">"play\n"</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<h1 id="u7F51_u6613_u4E91_u97F3_u4E50__u57FA_u7840API"><a href="#u7F51_u6613_u4E91_u97F3_u4E50__u57FA_u7840API" class="headerlink" title="网易云音乐 基础API"></a>网易云音乐 基础API</h1><p>以下是这次我要用到的一些基础api,登陆暂用不上.我是直接在每条request的header中写了cookie,这个cookie从web上,或者客户端里都能拿到的,最简单的是charles或者chrome的截包工具抓取一下就可以.<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defconst</span> batch-url <span class="string">"http://music.163.com/batch?%2Fapi%2Fdiscovery%2Fhotspot=%7B%22limit%22%3A12%7D"</span> <span class="string">"批量api地址"</span>)</span> <span class="comment">;;获取歌单</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> login-url <span class="string">"http://music.163.com/api/login/token/refresh"</span> <span class="string">"登陆地址"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> playlist-detail <span class="string">"http://music.163.com/api/playlist/detail?id=%d&amp;updateTime=-1"</span> <span class="string">"歌单详情"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> serarch-songs <span class="string">"http://music.163.com/api/search/pc"</span> <span class="string">"查找歌曲"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> song-detail <span class="string">"http://music.163.com/api/song/detail/"</span> <span class="string">"歌曲详情"</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">defconst</span> my-playlist <span class="string">"http://music.163.com/api/user/playlist/?offset=%d&amp;limit=6&amp;uid=28825388"</span> <span class="string">"我的收藏"</span>)</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> visit-163<span class="list">(<span class="keyword">url</span> <span class="keyword">&amp;optional</span> method callback callback-args)</span></span><br><span class="line">  <span class="list">(<span class="keyword">print</span> url)</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> method</span><br><span class="line">      <span class="list">(<span class="keyword">setq</span> url-request-method method)</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> url-request-method <span class="string">"GET"</span>)</span>)</span></span><br><span class="line"></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> url-cookie-untrusted-urls <span class="quoted">'(<span class="string">".*"</span>)</span>)</span></span><br><span class="line">  <span class="list">(<span class="keyword">setq</span> url-request-extra-headers</span><br><span class="line">	<span class="quoted">'(</span><br><span class="line">	  (<span class="string">"Host"</span> . <span class="string">"music.163.com"</span>)</span><br><span class="line">	  (<span class="string">"Content-Type"</span> . <span class="string">"application/x-www-form-urlencoded"</span>)</span><br><span class="line">	  (<span class="string">"Connection"</span> . <span class="string">"keep-alive"</span>)</span><br><span class="line">	  (<span class="string">"Cookie"</span>.<span class="string">"xxxxxxx"</span>) ;; 截取一下就ok</span><br><span class="line">	  (<span class="string">"Accept"</span> . <span class="string">"*/*"</span>)</span><br><span class="line">	  (<span class="string">"User-Agent"</span> . <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.76.4 (KHTML, like Gecko) Version/7.0.4 Safari/537.76.4"</span>)</span><br><span class="line">	  (<span class="string">"Referer"</span> . <span class="string">"http://music.163.com/"</span>)</span><br><span class="line">	  (<span class="string">"Accept-Language"</span> . <span class="string">"en-us"</span>)</span><br><span class="line">	  )</span> )</span></span><br><span class="line">  <span class="list">(<span class="keyword">if</span> callback</span><br><span class="line">      <span class="list">(<span class="keyword">url-retrieve</span> url callback callback-args)</span></span><br><span class="line">    <span class="list">(<span class="keyword">url-retrieve-synchronously</span> url)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p> 这些接口返回的数据全是json格式,我们可以用el-get-install json来安装json包<br> <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">require</span> <span class="quoted">'json_</span></span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> json-loads <span class="list">(<span class="keyword">buffer</span>)</span> </span><br><span class="line"> <span class="list">(<span class="keyword">setq</span> buffer-file-coding-system <span class="quoted">'no-conversion</span>)</span> </span><br><span class="line"> <span class="list">(<span class="keyword">with-current-buffer</span> buffer</span><br><span class="line">   <span class="list">(<span class="keyword">goto-char</span> <span class="list">(<span class="keyword">point-min</span>)</span>)</span> </span><br><span class="line">   <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">not</span> <span class="list">(<span class="keyword">search-forward</span> <span class="string">"&#123;"</span>)</span>)</span></span><br><span class="line"><span class="list">(<span class="keyword">message</span> <span class="string">"好像不是json数据"</span>)</span> <span class="comment">;; 去掉header,url-retrieve会把header信息也写进buffer中</span></span><br><span class="line">     <span class="list">(<span class="keyword">setq</span> json-start <span class="list">(<span class="keyword">line-beginning-position</span>)</span>)</span></span><br><span class="line">     <span class="list">(<span class="keyword">setq</span> json-end <span class="list">(<span class="keyword">line-end-position</span>)</span>)</span></span><br><span class="line">     <span class="list">(<span class="keyword">json-read-from-string</span> <span class="list">(<span class="keyword">decode-coding-string</span> <span class="list">(<span class="keyword">buffer-substring-no-properties</span> json-start json-end)</span> <span class="quoted">'utf-8</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+<p>比如我们要调取网易推荐的歌单<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">defun</span> get-recommend <span class="list">()</span></span><br><span class="line">  <span class="list">(<span class="keyword">let</span> <span class="list">(<span class="list">(<span class="keyword">data</span> <span class="list">(<span class="keyword">json-loads</span><span class="list">(<span class="keyword">visit-163</span> batch-url)</span>)</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">setq</span> code <span class="list">(<span class="keyword">cdr</span> <span class="list">(<span class="keyword">assoc</span> <span class="quoted">'code</span> data)</span>)</span>)</span></span><br><span class="line">    <span class="list">(<span class="keyword">if</span> <span class="list">(<span class="keyword">not</span> <span class="list">(<span class="keyword">=</span> code <span class="number">200</span>)</span>)</span> <span class="comment">;; 判断code</span></span><br><span class="line">	<span class="list">(<span class="keyword">message</span> <span class="string">"获取信息失败"</span>)</span></span><br><span class="line">      <span class="list">(<span class="keyword">setq</span> recommend-playlist</span><br><span class="line">	  <span class="list">(<span class="keyword">cdr</span></span><br><span class="line">	  <span class="list">(<span class="keyword">assoc</span> <span class="quoted">'data</span></span><br><span class="line">		  <span class="list">(<span class="keyword">cdr</span> <span class="list">(<span class="keyword">assoc</span> <span class="quoted">'/api/discovery/hotspot</span> data)</span>)</span>)</span>)</span>)</span>)</span>)</span>)</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="u663E_u793A"><a href="#u663E_u793A" class="headerlink" title="显示"></a>显示</h2><p>这个问题就仁者见仁了,比如我在写这一篇的时候觉得 &lt;&lt;我在人民广场吃着炸鸡&gt;&gt;挺好听的,按下键盘” C-c l “也就是 like-this-song.或者”C-c n”下一首.这些看习惯绑定.</p>
+<h1 id="u6548_u679C_u56FE"><a href="#u6548_u679C_u56FE" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/img/net-cm.png" alt="我在人民广场吃着炸鸡"><br><img src="/img/net-cm-good.png" alt="这首歌好听"></p>
+<h1 id="u53E6_u89C1"><a href="#u53E6_u89C1" class="headerlink" title="另见"></a>另见</h1><p><a href="http://albin.ga">albin.ga</a></p>
+
+  	
+  
+</div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/笔记/Emacs网易云音乐/">Emacs网易云音乐 瞎折腾</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 albin 的个人博客">albin</a></p>
+        <p><span>发布时间:</span>2015年06月17日 - 16时19分</p>
+        <p><span>最后更新:</span>2016年01月18日 - 19时06分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/笔记/Emacs网易云音乐/" title="Emacs网易云音乐 瞎折腾">http://albin.ga/笔记/Emacs网易云音乐/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://albin.ga/笔记/Emacs网易云音乐/　　作者: albin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/cocos/ccs2js/">
+                    ccs2js guides
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/笔记/python抓取图片/">
+                    python抓取图片
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5DE5_u5177_u51C6_u5907"><span class="toc-number">1.</span> <span class="toc-text">工具准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u64AD_u653Eurl"><span class="toc-number">2.</span> <span class="toc-text">播放url</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8C03_u7528mplayer"><span class="toc-number">2.1.</span> <span class="toc-text">调用mplayer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u76D1_u542Cmplayer_u7684_u72B6_u6001"><span class="toc-number">2.2.</span> <span class="toc-text">监听mplayer的状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u64AD_u653E_5C_u6682_u505C_5C_u4E0A_u4E0B_u9996"><span class="toc-number">2.3.</span> <span class="toc-text">播放\暂停\上下首</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7F51_u6613_u4E91_u97F3_u4E50__u57FA_u7840API"><span class="toc-number"></span> <span class="toc-text">网易云音乐 基础API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u663E_u793A"><span class="toc-number">1.</span> <span class="toc-text">显示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6548_u679C_u56FE"><span class="toc-number"></span> <span class="toc-text">效果图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53E6_u89C1"><span class="toc-number"></span> <span class="toc-text">另见</span></a>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="笔记/Emacs网易云音乐/" data-title="Emacs网易云音乐 瞎折腾" data-url="http://albin.ga/笔记/Emacs网易云音乐/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"albin"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/cocos/ccs2js/" title="上一篇: ccs2js guides">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/笔记/python抓取图片/" title="下一篇: python抓取图片">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/笔记/hexo-org-test/">hexo-org-test</a></li><li class="post-list-item"><a class="post-list-link" href="/个人信息/简历/我的个人简历/">我的个人简历</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/sublime3_package_control/">Sublime Text的package-control安装</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/c++学习笔记/">c++ 11 Lambda</a></li><li class="post-list-item"><a class="post-list-link" href="/cocos/ccs2js/">ccs2js guides</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/Emacs网易云音乐/">Emacs网易云音乐 瞎折腾</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/python抓取图片/">python抓取图片</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/python_map用法/">python 一行代码并发模糊图片</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/phonegamp_manaul/">PhoneGap使用帮助</a></li><li class="post-list-item"><a class="post-list-link" href="/笔记/git-自动部署/">git 自动部署</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 albin
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

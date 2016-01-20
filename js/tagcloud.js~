@@ -1,0 +1,9 @@
+function tagCloud(div)
+{
+    $.get("/tags/index.html","", function(data){
+        var a = data.substr(data.indexOf('<ul class="org-ul">') + 19);
+        div.innerHTML += a.substr(0, a.indexOf('</ul>'))
+
+    });
+
+}
