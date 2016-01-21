@@ -6,6 +6,7 @@
 #+OPTIONS: toc:nil
 #+DESCRIPTION: 粗略介绍一下python,简单入门，以及几个例子
 
+<<<<<<< HEAD
 
 * 为什么会有这个东西
 #+ATTR_HTML:  :alt JIRA
@@ -34,6 +35,35 @@ python我也只是用她来做一些辅助性的工作，今天主要目的是�
 
 ** 管理脚本
 
+=======
+* 为什么会有这个东西
+#+ATTR_HTML:  :alt JIRA
+[[http://7xq9bs.com1.z0.glb.clouddn.com/org/jira-python.png]] [[http://10.1.29.87:8080/browse/SXD-2066][JIRA]]
+
+python我也只是用她来做一些辅助性的工作，所以对她也是一知半解，今天主要目的是给不了解她的同学介绍一下她，和她很熟的，就当我是抛砖引玉，希望有大牛来带我们飞。
+
+* 简介
+
+语言应该都有自己所擅长的领域，甚至是专门为了某些需求而生。而 *Python* 居然是著名的“龟叔”Guido van Rossum在1989年圣诞节期间，为了打发无聊的圣诞节而编写的一个编程语言。可想而知程序员无聊起来是多么的可怕。现在我们用的语言是不是大多数是因为某位大牛无聊了。
+
+*Python* 发展到现在，她主要涉及了哪些领域。
+
+
+** 游戏
+
++ 最早的cocos2d-iphone就是从python的pycocos移植过来的。由于她寄生于好多语言之上，把她当lua用的也是有的，当然还有早期的unity3d boo。
+
+** WEB服务
+
++ 许多大型网站就是用Python开发的，例如YouTube、Instagram，还有国内的豆瓣。很多大公司，包括Google、Yahoo等，甚至NASA（美国航空航天局）都大量地使用Python。
+
+** 工具
+
++ *Python* 有一个非常好用的包管理软件, *pip*, 比如我们现在想连接数据库 *pip search mysql* 然后根据找到的进行安装，比如 *pip install PyMySQL3* 。如果想看它的文档，可以直接访问 https://pypi.python.org/pypi/PyMySQL3 ，这里的最后一个就是我们所安装的包名。
+
+** 管理脚本
+
+>>>>>>> bcb486053a42c914e8e69653b95e933680c79a88
 + GNU下面有一大堆的sh，bash，zsh，ksh，而windows却是bat。如果想写一条简单的部署脚本， *Python* 是个不错的选择。比如svn，或者git的hooks
 
 * 简单的小例子
@@ -45,7 +75,11 @@ python我也只是用她来做一些辅助性的工作，今天主要目的是�
 ** 美术
 *** 处理psd
 当然ps有自己的脚本(javascript),而且还有那么多api要看，如果只是想做一些简单的处理就比较麻烦了
+<<<<<<< HEAD
 - 根据已经有psd替换其中的文本，文本来自策划的excel,其实用的是win32comclient
+=======
+- 根据已经有psd替换其中的文本，文本来自策划的excel
+>>>>>>> bcb486053a42c914e8e69653b95e933680c79a88
 - 根据策划的要求，制作不同规格的图片
 - 压缩或者其它处理
 

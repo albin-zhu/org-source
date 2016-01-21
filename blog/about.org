@@ -1,0 +1,11 @@
+#+TITLE:       关于我
+#+AUTHOR:      albin
+#+EMAIL:       albinyewen@gmail.com
+#+DATE:        2016-01-20 三
+#+URI:         /blog/%y/%m/%d/关于我
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: 一个不务正业的程序猿
+
+这个就是参照 hexo-theme-yelee 的主题移到 org-page,为什么要这么干，折腾！
+是不是拿一张相片就可以了，不用写字了吧，就一个吊丝程序猿，有什么好写的。
